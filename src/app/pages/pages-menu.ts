@@ -71,6 +71,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
+    title: 'PrimeNGDemo',
+    icon: 'nb-compose',
+    children: [
+      {
+        title: 'table',
+        link: '/pages/PrimeNGDemo/table',
+      },
+      {
+        title: 'dataview',
+        link: '/pages/PrimeNGDemo/dataview',
+      } 
+    ],
+  },
+  {
     title: 'Forms',
     icon: 'nb-compose',
     children: [

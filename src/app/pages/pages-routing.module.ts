@@ -39,6 +39,10 @@ const routes: Routes = [{
   }, {
     path: 'forms',
     loadChildren: './forms/forms.module#FormsModule',
+  }
+    , {
+    path: 'PrimeNGDemo',
+    loadChildren: './PrimeNGDemo/PrimeNGDemo.module#PrimeNGDemoModule',
   }, {
     path: 'tables',
     loadChildren: './tables/tables.module#TablesModule',
