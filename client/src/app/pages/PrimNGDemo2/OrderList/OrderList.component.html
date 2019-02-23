@@ -1,0 +1,26 @@
+<nb-card>
+<nb-card-header>
+Order list
+</nb-card-header>
+<nb-card-body>
+  <p-orderList [value]="cars" [(selection)]="selectedCars">
+    <ng-template let-car pTemplate="item">
+      <div class="ui-helper-clearfix">
+        <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{car.brand}} - {{car.year}} - {{car.color}}</div>
+      </div>
+    </ng-template>
+  </p-orderList>
+
+  <!-- <button (click)="onClick()">Edit</button>
+
+  <p-button label="Click" ></p-button> -->
+
+  <button pButton type="button" label="Edit" (click)="onClick()" ></button>
+
+</nb-card-body>
+  <nb-card-footer>
+
+  </nb-card-footer>
+
+</nb-card>
+

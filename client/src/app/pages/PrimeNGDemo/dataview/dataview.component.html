@@ -1,0 +1,15 @@
+<nb-card>
+  <nb-card-header>Data View</nb-card-header>
+  <nb-card-body>
+
+    <p-dataView [value]="cars" [paginator]="true" [rows]="10">
+      <ng-template let-car pTemplate="listItem">
+        <div>
+          {{car.brand}}
+        </div>
+      </ng-template>
+    </p-dataView>
+
+  </nb-card-body>
+  <nb-card-footer></nb-card-footer>
+</nb-card>
