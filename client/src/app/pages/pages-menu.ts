@@ -118,6 +118,35 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
 
   {
+    title: 'security',
+    icon: 'nb-compose',
+    children: [
+      {
+        title: 'permissions',
+        link: '/pages/security/permissions',
+      },
+      {
+        title: 'groups',
+        link: '/pages/security/groups',
+      },
+      {
+        title: 'users',
+        link: '/pages/security/users',
+      },
+      {
+        title: 'add-group',
+        link: '/pages/security/add-group',
+      }
+     ,
+
+      {
+        title: 'edit-group',
+        link: '/pages/security/edit-group',
+      }
+    ],
+  },
+
+  {
     title: 'shopping',
     icon: 'nb-compose',
     children: [
@@ -128,7 +157,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'cart',
         link: '/pages/shopping/cart',
-      }
+      },
     ],
   },
 

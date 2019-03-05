@@ -48,6 +48,9 @@ const routes: Routes = [{
   },{
     path: 'logIn',
     loadChildren: './logIn/logIn.module#LogInModule',
+  },{
+    path: 'security',
+    loadChildren: './security/security.module#SecurityModule',
   }, {
     path: 'shopping',
     loadChildren: './shopping/shopping.module#ShoppingModule',

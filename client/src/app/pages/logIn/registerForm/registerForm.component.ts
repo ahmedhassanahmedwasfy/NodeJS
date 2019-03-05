@@ -24,7 +24,7 @@ export class RegisterFormComponent implements OnInit {
 
   register() {
     this.auth.register(this.credentials).subscribe(() => {
-      this.router.navigateByUrl('/profile');
+      window.location.href=('http://localhost:4200/#/pages/logIn/profileForm');
     }, (err) => {
       console.error(err);
     });

@@ -7,14 +7,14 @@ import { PrimeNGDemoRoutes } from './PrimeNGDemo.routing';
 import { DataViewModule } from 'primeng/dataview';
 import { CarService } from './services/car.service';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+// import { HttpClientModule } from '@angular/common/http';
 import {ThemeModule} from "../../@theme/theme.module";
 
 @NgModule({
   imports: [
-    CommonModule,PrimeNGDemoRoutes,DataViewModule,HttpModule,ThemeModule,HttpClientModule
+    CommonModule,PrimeNGDemoRoutes,DataViewModule,HttpModule,ThemeModule//,HttpClientModule
   ],
   declarations: [PrimeNGDemoComponent,TableComponent,DataviewComponent],
-  providers:[CarService]
+  providers:[]
 })
 export class PrimeNGDemoModule { }

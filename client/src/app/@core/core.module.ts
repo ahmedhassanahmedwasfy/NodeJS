@@ -51,6 +51,13 @@ import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
+//import {ErrorDialogService} from "./utils/error-dialog-service.service";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {JWTTokenInterceptor} from "./utils/interceptor.service";
+import {CarService} from "../pages/PrimeNGDemo/services/car.service";
+import {HttpModule} from "@angular/http";
+import {NbToastrService} from "@nebular/theme";
+// import {interceptor} from "./utils/interceptor.service";
 
 const socialLinks = [
   {
@@ -145,10 +152,11 @@ export const NB_CORE_PROVIDERS = [
 
 @NgModule({
   imports: [
-    CommonModule,
+    HttpModule,
+    CommonModule //,HttpClientModule
   ],
   exports: [
-    NbAuthModule,
+    NbAuthModule //,HttpClientModule
   ],
   declarations: [],
 })
@@ -161,6 +169,13 @@ export class CoreModule {
     return <ModuleWithProviders>{
       ngModule: CoreModule,
       providers: [
+        CarService,NbToastrService,
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: JWTTokenInterceptor,
+          multi: true
+        } ,
+
         ...NB_CORE_PROVIDERS,
       ],
     };

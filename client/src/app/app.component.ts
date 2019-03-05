@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { AnalyticsService } from './@core/utils/analytics.service';
 import { NbLayoutDirectionService, NbLayoutDirection } from '@nebular/theme';
 import { TranslateService } from '@ngx-translate/core';
+import {HttpClient} from "@angular/common/http";
 
 
 @Component({
@@ -15,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private directionService: NbLayoutDirectionService,  private translate: TranslateService) {
+  constructor(private http:HttpClient, private directionService: NbLayoutDirectionService,  private translate: TranslateService) {
     directionService.onDirectionChange().subscribe((e) => {
       let lang = e == NbLayoutDirection.LTR ? 'en' : 'ar';
       translate.use(lang);
@@ -25,6 +26,12 @@ export class AppComponent implements OnInit {
     
     translate.setDefaultLang('en');
     translate.addLangs(['en', 'ar']);
+    //
+    // const url = 'https://jsonplaceholder.typicode.com/posts/1';
+    // this.http.get(url, ).subscribe(e=>{
+    //   console.log(e)
+    // });
+
   }
 
   ngOnInit(): void {

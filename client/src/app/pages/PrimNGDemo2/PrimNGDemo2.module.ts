@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PrimNGDemo2Component } from './PrimNGDemo2.component';
 import { OrderListComponent } from './OrderList/OrderList.component';
 import { FullCallendarComponent } from './FullCallendar/FullCallendar.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient } from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 
 import { HttpModule } from '@angular/http';
@@ -20,7 +20,7 @@ import { ThemeModule } from '../../@theme/theme.module';
 @NgModule({
   imports: [
     ThemeModule,
-    CommonModule, PrimeNGDemo2Routes, FullCalendarModule, HttpClientModule, HttpModule, OrderListModule, ButtonModule, 
+    CommonModule, PrimeNGDemo2Routes, FullCalendarModule,   HttpModule, OrderListModule, ButtonModule,
 ],
   declarations: [PrimNGDemo2Component, OrderListComponent, FullCallendarComponent],
   providers: [EventService, CarService]

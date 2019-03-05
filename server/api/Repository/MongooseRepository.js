@@ -44,7 +44,7 @@ class MongooseRepository {
     async delete(query){
         let data,err;
         try {
-            data=   await this.collection.deleteOne(query).lean().exec();
+            data=   await this.collection.delete(query).lean().exec();
 
         }catch (e) {
             err=e;
@@ -66,14 +66,15 @@ class MongooseRepository {
         return {err,data};
     }
     async create(objs){
-
         let data,err;
         try {
-            data=   await this.collection.create(objs).lean().exec();
+            data=   await this.collection.create(objs);
 
         }catch (e) {
             err=e;
         }
+
+
 
         // let {err,res}= await this.collection.find().lean().exec();
         return {err,data};

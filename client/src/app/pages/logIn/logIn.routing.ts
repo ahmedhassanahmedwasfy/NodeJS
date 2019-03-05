@@ -12,17 +12,17 @@ const routes: Routes = [
     path: '',
     component: LogInComponent,
     children: [{
-      path: 'logInForm'
-      , component: LogInFormComponent
+      path: 'logInForm',
+      component: LogInFormComponent
     },
   {
-    path: 'registerForm'
-      , component: RegisterFormComponent
+    path: 'registerForm',
+    component: RegisterFormComponent
   },
   {
-    path: 'profileForm'
-      , component: ProfileFormComponent,
-      canActivate: [AuthGuardService]
+    path: 'profileForm',
+    component: ProfileFormComponent,
+    canActivate: [AuthGuardService]
 
   }]
   },

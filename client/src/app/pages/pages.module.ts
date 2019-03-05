@@ -19,6 +19,7 @@ const PAGES_COMPONENTS = [
     ECommerceModule,
     MiscellaneousModule,
   ],
+  providers:[],
   declarations: [
     ...PAGES_COMPONENTS,
   ],

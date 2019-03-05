@@ -27,7 +27,7 @@ export class LogInFormComponent implements OnInit {
 
   login() {
     this.auth.login(this.credentials).subscribe(() => {
-      this.router.navigateByUrl('/profile');
+      window.location.href=('http://localhost:4200/#/pages/logIn/profileForm');
     }, (err) => {
       console.error(err);
     }); 

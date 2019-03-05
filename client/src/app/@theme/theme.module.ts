@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 import {
   NbActionsModule,
   NbCardModule,
@@ -70,12 +71,15 @@ import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import { TranslateModule } from '@ngx-translate/core';
+import {CarService} from "../pages/PrimeNGDemo/services/car.service";
+import {Ng2SmartTableModule} from "ng2-smart-table";
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
 
 const NB_MODULES = [
   NbCardModule,
   NbLayoutModule,
+  Ng2SmartTableModule,
   NbTabsetModule,
   NbRouteTabsetModule,
   NbMenuModule,
@@ -161,6 +165,7 @@ let myModules=[TranslateModule]
   imports: [...BASE_MODULES, ...NB_MODULES,...myModules],
   exports: [...BASE_MODULES, ...NB_MODULES, ...COMPONENTS, ...PIPES,...myModules],
   declarations: [...COMPONENTS, ...PIPES],
+
   entryComponents: [...ENTRY_COMPONENTS],
 })
 export class ThemeModule {
