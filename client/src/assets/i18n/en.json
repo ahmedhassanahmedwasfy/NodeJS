@@ -2,5 +2,65 @@
 	"HOME": {
 		"SELECT": "Change language",
 		"TITLE": "Hello Angular with ngx-translate!"
-	}
+	},
+
+  "viewGroups": {
+    "Header": "Groups and Permissions",
+    "CreateButton": "Create Group",
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "SearchGroup": "Search by group"
+  },
+
+  "addGroup": {
+    "Header": "Create Group",
+    "GroupNameEN": "English Group Name",
+    "EnterNameEN": "Enter english name",
+    "GroupNameAR": "Arabic Group Name",
+    "EnterNameAR": "Enter arabic name",
+    "SubHeader": "Choose Permissions",
+    "sourceHeader": "Available",
+    "targetHeader": "Selected",
+    "Save": "Save",
+    "Cancel": "Cancel"
+  },
+
+  "editGroup": {
+    "Header": "Update Group",
+    "GroupNameEN": "English Group Name",
+    "GroupNameAR": "Arabic Group Name",
+    "SubHeader": "Edit Permissions",
+    "sourceHeader": "Available",
+    "targetHeader": "Selected",
+    "Save": "Save",
+    "Cancel": "Cancel"
+  },
+
+  "viewPermissions": {
+    "Header": "Permissions List",
+    "CreateButton": "Create Permission",
+    "EnglishName": "English Name",
+    "ArabicName": "Arabic Name",
+    "Edit": "Edit",
+    "Delete": "Delete"
+  },
+
+  "addPermissions": {
+    "Header": "Create Permission",
+    "EnglishName":"English Permission Name",
+    "EnterEnglishName": "Enter English Name",
+    "ArabicName": "Arabic Permission Name",
+    "EnterArabicName": "Enter Arabic Name",
+    "Submit": "Edit",
+    "Cancel": "Delete"
+  },
+
+  "editPermissions": {
+    "Header": "Edit Permission",
+    "EnglishName": "English Permission Name",
+    "ArabicName": "Arabic Permission Name",
+    "Submit": "Submit",
+    "Cancel": "Cancel"
+  }
 }
+

@@ -22,10 +22,10 @@ class MongooseRepository {
        return {err,data};
     }
 
-    async find(query,skip,limit,populate){
+    async find(skip,limit,populate){
         let data,err;
         try {
-            let q=this.collection.find(query);
+            let q=this.collection.find();
             if(populate){
                 q.populate(populate);
             }
@@ -60,7 +60,7 @@ class MongooseRepository {
     async update(model){
         let data,err;
         try {
-            data=   await this.collection.findOneAndUpdate({_id:model._id},model,{upsert: true, 'new': true}).lean().exec();
+            data=   await this.collection.findOneAndUpdate({_id:model._id},model).lean().exec();
 
         }catch (e) {
             err=e;
@@ -68,6 +68,14 @@ class MongooseRepository {
 
         // let {err,res}= await this.collection.find().lean().exec();
         return {err,data};
+    }
+    async CreateOrUpdate(model){
+     if(model._id){
+         return  this.update(model);
+     }
+     else{
+       return  this.create(model);
+     }
     }
 
     async create(objs){

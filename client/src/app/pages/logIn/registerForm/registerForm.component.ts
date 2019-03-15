@@ -21,7 +21,6 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit(){
   }
 
-
   register() {
     this.auth.register(this.credentials).subscribe(() => {
       window.location.href=('http://localhost:4200/#/pages/logIn/profileForm');

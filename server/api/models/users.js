@@ -14,6 +14,8 @@ var userSchema = new mongoose.Schema({
   },
   hash: String,
   salt: String,
+  permissions: [],
+  groups: []
 });
 //
 // userSchema.methods.setPassword = function(password){

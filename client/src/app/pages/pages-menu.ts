@@ -132,16 +132,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'users',
         link: '/pages/security/users',
-      },
-      {
-        title: 'add-group',
-        link: '/pages/security/add-group',
-      }
-     ,
-
-      {
-        title: 'edit-group',
-        link: '/pages/security/edit-group',
       }
     ],
   },

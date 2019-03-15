@@ -69,6 +69,23 @@ router.get('/users', function(req,res){
     ctrlUser.index(req,res)
 });
 
+router.get('/users/view/:id', function (req, res) {
+    ctrlUser.view(req, res)
+
+});
+
+router.post('/users/create', function(req,res){
+    ctrlUser.new(req,res)
+});
+
+router.post('/users/update', function(req,res){
+    ctrlUser.update(req, res)
+});
+
+router.delete('/users/delete/:id', function (req, res) {
+    ctrlUser.delete(req, res)
+});
+
 
 module.exports = router;
 

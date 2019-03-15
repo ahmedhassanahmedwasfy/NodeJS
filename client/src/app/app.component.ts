@@ -31,7 +31,6 @@ export class AppComponent implements OnInit {
     // this.http.get(url, ).subscribe(e=>{
     //   console.log(e)
     // });
-
   }
 
   ngOnInit(): void {

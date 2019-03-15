@@ -2,5 +2,66 @@
 	"HOME": {
 		"SELECT": "غير اللغة",
 		"TITLE": "مرحبا الزاوي مع ترجمة ngx!"
-	}
+	},
+
+  "viewGroups": {
+    "Header": "المجموعات والسماحات",
+    "CreateButton": "اضافه مجموعه",
+    "Edit": "تعديل",
+    "Delete": "مسح",
+    "SearchGroup": "بحث في المجموعه"
+
+  },
+
+  "addGroup": {
+    "Header": "اضافة مجموعة جديده",
+    "GroupNameEN": "اسم المجموعه بالانجليزيه",
+    "EnterNameEN": "ادخل المجموعه بالانجليزيه",
+    "GroupNameAR": "اسم المجموعه بالعربيه",
+    "EnterNameAR": "ادخل المجموعه بالعربيه",
+    "SubHeader": "اختر السماحات",
+    "sourceHeader": "المتاحه",
+    "targetHeader": "المختاره",
+    "Save": "حفظ",
+    "Cancel": "رجوع"
+  },
+
+  "editGroup": {
+    "Header": "تعديل مجموعه",
+    "GroupNameEN": "اسم المجموعه بالانجليزيه",
+    "GroupNameAR": "اسم المجموعه بالعربيه",
+    "SubHeader": "عدل السماحات",
+    "sourceHeader": "المتاحه",
+    "targetHeader": "المختاره",
+    "Save": "حفظ",
+    "Cancel": "رجوع"
+  },
+
+  "viewPermissions": {
+    "Header": "السماحات",
+    "CreateButton": "اضافه سماحيه",
+    "EnglishName": "الاسم بالانجليزيه",
+    "ArabicName": "الاسم بالعربيه",
+    "Edit": "تعديل",
+    "Delete": "مسح"
+  },
+
+  "addPermissions": {
+    "Header": "اضافه سماحيه",
+    "EnglishName":"السماحيه بالانجليزيه",
+    "EnterEnglishName": "ادخل السماحيه بالانجليزيه",
+    "ArabicName": "السماحيه بالعربيه",
+    "EnterArabicName": "ادخل السماحيه بالعربيه",
+    "Submit": "حفظ",
+    "Cancel": "رجوع"
+  },
+
+  "editPermissions": {
+    "Header": "تعديل السماحيه",
+    "EnglishName": "السماحيه بالانجليزيه",
+    "ArabicName": "السماحيه بالعربيه",
+    "Submit": "حفظ",
+    "Cancel": "رجوع"
+  }
 }
+
