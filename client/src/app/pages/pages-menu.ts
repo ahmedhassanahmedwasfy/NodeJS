@@ -99,25 +99,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'logIn',
-    icon: 'nb-compose',
-    children: [
-      {
-        title: 'logInForm',
-        link: '/pages/logIn/logInForm',
-      },
-      {
-        title: 'registerForm',
-        link: '/pages/logIn/registerForm',
-      },
-      {
-        title: 'profileForm',
-        link: '/pages/logIn/profileForm',
-      }
-    ],
-  },
-
-  {
     title: 'security',
     icon: 'nb-compose',
     children: [
@@ -132,6 +113,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'users',
         link: '/pages/security/users',
+      }
+    ],
+  },{
+    title: 'user',
+    icon: 'nb-compose',
+    children: [
+      {
+        title: 'profile',
+        link: '/pages/user/profile',
       }
     ],
   },

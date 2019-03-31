@@ -46,9 +46,6 @@ const routes: Routes = [{
     path: 'PrimeNGDemo2',
     loadChildren: './PrimNGDemo2/PrimNGDemo2.module#PrimNGDemo2Module',
   },{
-    path: 'logIn',
-    loadChildren: './logIn/logIn.module#LogInModule',
-  },{
     path: 'security',
     loadChildren: './security/security.module#SecurityModule',
   }, {

@@ -1,4 +1,9 @@
 {
+  "generalToasters": {
+    "success": "تمت المعاملة بنجاح!",
+    "error": "فشلت المعاملة!",
+    "title": "إخطار"
+  },
 	"HOME": {
 		"SELECT": "غير اللغة",
 		"TITLE": "مرحبا الزاوي مع ترجمة ngx!"
@@ -13,24 +18,11 @@
 
   },
 
-  "addGroup": {
-    "Header": "اضافة مجموعة جديده",
-    "GroupNameEN": "اسم المجموعه بالانجليزيه",
-    "EnterNameEN": "ادخل المجموعه بالانجليزيه",
-    "GroupNameAR": "اسم المجموعه بالعربيه",
-    "EnterNameAR": "ادخل المجموعه بالعربيه",
-    "SubHeader": "اختر السماحات",
-    "sourceHeader": "المتاحه",
-    "targetHeader": "المختاره",
-    "Save": "حفظ",
-    "Cancel": "رجوع"
-  },
-
   "editGroup": {
     "Header": "تعديل مجموعه",
     "GroupNameEN": "اسم المجموعه بالانجليزيه",
     "GroupNameAR": "اسم المجموعه بالعربيه",
-    "SubHeader": "عدل السماحات",
+    "SubHeader": "اختر السماحات",
     "sourceHeader": "المتاحه",
     "targetHeader": "المختاره",
     "Save": "حفظ",
@@ -46,22 +38,88 @@
     "Delete": "مسح"
   },
 
-  "addPermissions": {
-    "Header": "اضافه سماحيه",
-    "EnglishName":"السماحيه بالانجليزيه",
-    "EnterEnglishName": "ادخل السماحيه بالانجليزيه",
-    "ArabicName": "السماحيه بالعربيه",
-    "EnterArabicName": "ادخل السماحيه بالعربيه",
-    "Submit": "حفظ",
-    "Cancel": "رجوع"
-  },
-
   "editPermissions": {
     "Header": "تعديل السماحيه",
     "EnglishName": "السماحيه بالانجليزيه",
     "ArabicName": "السماحيه بالعربيه",
     "Submit": "حفظ",
     "Cancel": "رجوع"
+  },
+
+  "Users": {
+    "Header": "المستخدمين",
+    "CreateUser": "اضافه مستخدم",
+    "Name": "اسم",
+    "Email": "البريد الالكترةني",
+    "Edit": "تعديل",
+    "Delete": "مسح"
+  },
+
+  "editUsers": {
+    "Header": "تحديث المستخدم",
+    "SubHeader1": "اختر السماحات",
+    "SubHeader2": "اختر المجموعات",
+    "NameEN": "الاسم بالانجليزيه",
+    "NameAR": "الاسم بالعربيه",
+    "Email": "البريد الالكتروني",
+    "Password": "الرقم السري",
+    "sourceHeader": "المتاحه",
+    "targetHeader": "المختاره",
+    "Submit": "حفظ",
+    "Cancel": "رجوع"
+  },
+
+
+  "groupsToasters": {
+    "successHeader": "رساله نجاح!",
+    "updateSucc": "تم تحديث المجموعات بنجاح!",
+    "deleteSucc": "تم مسح المجموعه بنجاح!"
+  },
+
+  "permissionsToasters": {
+    "successHeader": "رساله نجاح!",
+    "updateSucc": "تم تحديث السماحيات بنجاح!",
+    "deleteSucc": "تم مسح السماحيه بنجاح!"
+  },
+
+  "usersToasters": {
+    "successHeader": "رساله نجاح!",
+    "updateSucc": "تم تحديث المستخدمين بنجاح!",
+    "deleteSucc": "تم مسح المستخدم بنجاح!"
+  },
+
+  "validation": {
+    "requiredMsgEnName": "الاسم بالانجليزيه مطلوب!",
+    "patternMsgEnName": "الاسم يجب ان يكون بالانجليزيه!",
+    "requiredMsgArName": "الاسم بالعربيه مطلوب!",
+    "patternMsgArName": "الاسم يجب ان يكون بالعربيه!",
+    "requiredMsgEmail": "البريد الالكتروني مطلوب!",
+    "patternMsgEmail": "البريد الالكتروني يجب ان يكون حقيقي!",
+    "minlengthMsgEmail": "البريد الالكتروني يجب ان يتكون من 6حروف علي الاقل!",
+    "requiredMsgPassword": "الرقم السري مطلوب!",
+    "patternMsgPassword": "الرقم السري يجب ان يحتوي علي حرف صغير علي الاقل ,حرف كبير عالاقل, ورمز خاص عالاقل و6 حروف علي الاقل! ",
+    "requiredMsgConPassword": "تاكيد الرقم السري مطلوب!",
+    "patternMsgConPassword": "الرقم السري لا يطابق تاكيد الرقم السري!"
+  },
+
+  "Auth": {
+    "RegisterTitle": "تسجيل",
+    "NameEn": "الاسم بالكامل بالانجليزيه:",
+    "NameAr": "الاسم بالكامل بالعربيه:",
+    "email": "البريد الالكتروني:",
+    "Password": "الرقم السري:",
+    "Confirmpassword": "تاكيد الرقم السري:",
+    "RegisterButton": "تسجيل",
+    "LogIn": "تسجيل الدخول",
+    "checkAcount": "تمتلك حساب؟",
+    "subTitle": "اهلا! سجل دخولك بالبريد الالكتروني",
+    "checkRegister": "هل لديك حساب؟",
+    "passwordPlaceholder": "ادخل الرقم السري",
+    "confPasswordPlaceholder": "تاكيد الرقم السري",
+    "emailPlaceholder": "ادخل البريد الالكتروني",
+    "nameEnPlaceholder": "ادخل الاسم بالانجليزيه",
+    "nameArPlaceholder": "ادخل الاسم بالعربيه"
   }
+
 }
 

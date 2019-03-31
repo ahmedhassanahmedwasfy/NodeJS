@@ -1,13 +1,17 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import {
-  NbAuthComponent,
-  NbLoginComponent,
-  NbLogoutComponent,
-  NbRegisterComponent,
-  NbRequestPasswordComponent,
-  NbResetPasswordComponent,
-} from '@nebular/auth';
+// import {NbAuthComponent} from "./auth/auth.component";
+import {NbLoginComponent} from "./auth/logIn/logInForm.component";
+import {NbRegisterComponent} from "./auth/register/registerForm.component";
+import {NbLogoutComponent, NbRequestPasswordComponent, NbResetPasswordComponent} from "@nebular/auth";
+  import {
+   NbAuthComponent,
+//   NbLoginComponent,
+//   NbLogoutComponent,
+//   NbRegisterComponent,
+//   NbRequestPasswordComponent,
+//   NbResetPasswordComponent,
+  } from '@nebular/auth';
 
 const routes: Routes = [
   { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule' },

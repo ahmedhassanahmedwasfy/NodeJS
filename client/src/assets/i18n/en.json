@@ -1,8 +1,17 @@
 {
+  "generalToasters": {
+    "success": "Opertion succeeded",
+    "error": "Operation Failed",
+    "title": "Notification"
+  },
 	"HOME": {
 		"SELECT": "Change language",
 		"TITLE": "Hello Angular with ngx-translate!"
 	},
+
+  "General": {
+
+  },
 
   "viewGroups": {
     "Header": "Groups and Permissions",
@@ -12,24 +21,11 @@
     "SearchGroup": "Search by group"
   },
 
-  "addGroup": {
-    "Header": "Create Group",
-    "GroupNameEN": "English Group Name",
-    "EnterNameEN": "Enter english name",
-    "GroupNameAR": "Arabic Group Name",
-    "EnterNameAR": "Enter arabic name",
-    "SubHeader": "Choose Permissions",
-    "sourceHeader": "Available",
-    "targetHeader": "Selected",
-    "Save": "Save",
-    "Cancel": "Cancel"
-  },
-
   "editGroup": {
     "Header": "Update Group",
     "GroupNameEN": "English Group Name",
     "GroupNameAR": "Arabic Group Name",
-    "SubHeader": "Edit Permissions",
+    "SubHeader": "Choose Permissions",
     "sourceHeader": "Available",
     "targetHeader": "Selected",
     "Save": "Save",
@@ -45,22 +41,86 @@
     "Delete": "Delete"
   },
 
-  "addPermissions": {
-    "Header": "Create Permission",
-    "EnglishName":"English Permission Name",
-    "EnterEnglishName": "Enter English Name",
-    "ArabicName": "Arabic Permission Name",
-    "EnterArabicName": "Enter Arabic Name",
-    "Submit": "Edit",
-    "Cancel": "Delete"
-  },
-
   "editPermissions": {
-    "Header": "Edit Permission",
+    "Header": "Update Permission",
     "EnglishName": "English Permission Name",
     "ArabicName": "Arabic Permission Name",
     "Submit": "Submit",
     "Cancel": "Cancel"
+  },
+
+  "Users": {
+    "Header": "Users List",
+    "CreateUser": "Create User",
+    "Name": "Name",
+    "Email": "Email",
+    "Edit": "Edit",
+    "Delete": "Delete"
+  },
+
+  "editUsers": {
+    "Header": "Update User",
+    "SubHeader1": "Choose Permissions",
+    "SubHeader2": "Choose Groups",
+    "NameEN": "Name in English",
+    "NameAR": "Name in Arabic",
+    "Email": "Emial",
+    "Password": "Password",
+    "sourceHeader": "Available",
+    "targetHeader": "Selected",
+    "Submit": "Submit",
+    "Cancel": "Cancel"
+  },
+
+  "groupsToasters": {
+    "successHeader": "Success Message!",
+    "updateSucc": "Groups Updated Sucessfully!",
+    "deleteSucc": "Group Deleted Sucessfully!"
+  },
+
+  "permissionsToasters": {
+    "successHeader": "Success Message!",
+    "updateSucc": "permissions Updated Sucessfully!",
+    "deleteSucc": "permission Deleted Sucessfully!"
+  },
+
+  "usersToasters": {
+    "successHeader": "Success Message!",
+    "updateSucc": "Users Updated Sucessfully!",
+    "deleteSucc": "Users Deleted Sucessfully!"
+  },
+
+  "validation": {
+    "requiredMsgEnName": "Name in english is required!",
+    "patternMsgEnName": "name must be in english!",
+    "requiredMsgArName": "Name in arabic is required!",
+    "patternMsgArName": "name must be in arabic!",
+    "requiredMsgEmail": "Email is required!",
+    "patternMsgEmail": "Email should be the real one!",
+    "minlengthMsgEmail": "Email must be at least 6 characters long!",
+    "requiredMsgPassword": "Password is required!",
+    "patternMsgPassword": "Password should contains at least 1 Uppercase, At least 1 Lowercase,\n        At least 1 Number, At least 1 Symbol and at least 6 char!",
+    "requiredMsgConPassword": "Password confirmation is required!",
+    "patternMsgConPassword": "Password does not match the confirm password!"
+  },
+
+  "Auth": {
+    "RegisterTitle": "Register",
+    "NameEn": "Full name in English:",
+    "NameAr": "Full name in Arabic:",
+    "email": "Email address:",
+    "Password": "Password:",
+    "Confirmpassword": "Confirm password:",
+    "RegisterButton": "Register",
+    "LogIn": "Log in",
+    "checkAcount": "Already have an account?",
+    "subTitle": "Hello! Log in with your email.",
+    "checkRegister": "Don't have an account?",
+    "passwordPlaceholder": "Enter Password",
+    "confPasswordPlaceholder": "Reenter Password",
+    "emailPlaceholder": "Enter email",
+    "nameEnPlaceholder": "Enter your name in English",
+    "nameArPlaceholder": "Enter your name in Arabic"
   }
 }
 

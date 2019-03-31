@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
+import {  NbDummyAuthStrategy } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
@@ -57,6 +57,7 @@ import {JWTTokenInterceptor} from "./utils/interceptor.service";
 import {CarService} from "../pages/PrimeNGDemo/services/car.service";
 import {HttpModule} from "@angular/http";
 import {NbToastrService} from "@nebular/theme";
+import {NbAuthModule} from "@nebular/auth";
 // import {interceptor} from "./utils/interceptor.service";
 
 const socialLinks = [
@@ -109,6 +110,21 @@ export class NbSimpleRoleProvider extends NbRoleProvider {
 export const NB_CORE_PROVIDERS = [
   ...MockDataModule.forRoot().providers,
   ...DATA_SERVICES,
+ ,
+
+  NbSecurityModule.forRoot({
+    accessControl: {
+      guest: {
+        view: '*',
+      },
+      user: {
+        parent: 'guest',
+        create: '*',
+        edit: '*',
+        remove: '*',
+      },
+    },
+  }).providers,
   ...NbAuthModule.forRoot({
 
     strategies: [
@@ -140,7 +156,6 @@ export const NB_CORE_PROVIDERS = [
       },
     },
   }).providers,
-
   {
     provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
   },
@@ -153,7 +168,8 @@ export const NB_CORE_PROVIDERS = [
 @NgModule({
   imports: [
     HttpModule,
-    CommonModule //,HttpClientModule
+    CommonModule ,
+    // NbAuthModule//,HttpClientModule
   ],
   exports: [
     NbAuthModule //,HttpClientModule

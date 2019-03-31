@@ -69,14 +69,6 @@ class MongooseRepository {
         // let {err,res}= await this.collection.find().lean().exec();
         return {err,data};
     }
-    async CreateOrUpdate(model){
-     if(model._id){
-         return  this.update(model);
-     }
-     else{
-       return  this.create(model);
-     }
-    }
 
     async create(objs){
         let data,err;
@@ -86,12 +78,20 @@ class MongooseRepository {
         }catch (e) {
             err=e;
         }
-
-
-
         // let {err,res}= await this.collection.find().lean().exec();
         return {err,data};
     }
+
+    async CreateOrUpdate(model){
+     if(model._id){
+         return  this.update(model);
+     }
+     else{
+       return  this.create(model);
+     }
+    }
+
+
 }
 
 module.exports=MongooseRepository;

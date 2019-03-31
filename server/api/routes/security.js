@@ -28,10 +28,6 @@ router.get('/permissions/view/:id', function(req,res){
     ctrlPermission.view(req,res)
 });
 
-router.post('/permissions/create', function(req,res){
-        ctrlPermission.new(req,res)
-    });
-
 router.post('/permissions/update', function (req, res) {
     ctrlPermission.update(req,res)});
 
@@ -49,10 +45,6 @@ router.get('/groups/view/:id', function (req, res) {
     ctrlGroup.view(req, res)
 
 });
-
-router.post('/groups/create', function(req,res){
-        ctrlGroup.new(req,res)
-    });
 
 router.post('/groups/update', function(req,res){
     ctrlGroup.update(req, res)
@@ -74,10 +66,6 @@ router.get('/users/view/:id', function (req, res) {
 
 });
 
-router.post('/users/create', function(req,res){
-    ctrlUser.new(req,res)
-});
-
 router.post('/users/update', function(req,res){
     ctrlUser.update(req, res)
 });
@@ -85,7 +73,6 @@ router.post('/users/update', function(req,res){
 router.delete('/users/delete/:id', function (req, res) {
     ctrlUser.delete(req, res)
 });
-
 
 module.exports = router;
 

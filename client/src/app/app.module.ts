@@ -3,6 +3,7 @@
  * Copyright Akveo. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
+
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,19 +19,25 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
 import {NbToastrModule} from "@nebular/theme";
-//import {ErrorDialogService} from "./@core/utils/error-dialog-service.service";
+import { ToastrModule } from 'ngx-toastr';
+import { NgxValidationMessagesModule } from "ngx-validation-messages";
+import {NbAuthModule} from "./auth/auth.module";
 
+//import {ErrorDialogService} from "./@core/utils/error-dialog-service.service";
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    NbAuthModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    NgxValidationMessagesModule,
     NbToastrModule.forRoot(),
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
+    ToastrModule.forRoot(),
     CoreModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
@@ -55,5 +62,3 @@ export class AppModule {
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
-
-

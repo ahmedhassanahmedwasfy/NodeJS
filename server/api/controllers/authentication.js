@@ -11,12 +11,11 @@ var sendJSONresponse = function (res, status, content) {
 };
 
 module.exports.register = async function (req, res) {
-
-
     let salt = crypto.randomBytes(16).toString('hex');
     let objs =
         [{
-            name: req.body.name,
+            name_EN: req.body.name_EN,
+            name_AR: req.body.name_AR,
             email: req.body.email,
             salt: salt,
             hash: crypto.pbkdf2Sync(req.body.password, salt, 1000, 64, 'sha512').toString('hex'),
@@ -33,29 +32,28 @@ module.exports.register = async function (req, res) {
     });
 
 
-}; // = Authentication;
+};
+
 module.exports.login = async function (req, res) {
 
-    let dbobject = await UserRepo.findOne({email: req.body.username});
-    // , function (err, user) {
-    if (dbobject.err) {
-        return res.status(500).send(dbobject.err);
-    }
-    // Return if user not found in database
-    if (!dbobject.data) {
-        return res.status(401).send();
-    }
-    // Return if password is wrong
-    if (!securityUtility.validPassword(dbobject.data, req.body.password)) {
-        return res.status(401).send();
-    }
-    // If credentials are correct, return the user object
-    let token = securityUtility.generatetoken(dbobject.data);
-    res.status(200);
-    res.json({
-        "token": token
+    await User.findOne({email: req.body.email}, (err, user) => {
+        if (err) {
+            return res.status(500).send(dbobject.err);
+        }
+        // Return if user not found in database
+        if (!user) {
+            return res.status(401).send();
+        }
+        // Return if password is wrong
+        if (!securityUtility.validPassword(user, req.body.password)) {
+            return res.status(401).send();
+        }
+        // If credentials are correct, return the user object
+        let token = securityUtility.generatetoken(user);
+        res.status(200);
+        res.json({
+            "token": token
+        });
     });
-    // });
+};
 
-
-}
