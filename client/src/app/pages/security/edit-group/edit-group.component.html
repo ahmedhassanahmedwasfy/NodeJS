@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <nb-card>
+        <nb-card-header>{{'editGroup.Header' | translate }}</nb-card-header>
+        <nb-card-body>
+      <form  id="form" #form="ngForm" (submit)="form.valid && saveEditGroup()">
+        <div class="row ">
+        <div class="col-md-6 form-group">
+          <label for="name_EN">{{'editGroup.GroupNameEN' | translate }}</label>
+          <input type="text" class="form-control" name="name_EN" [(ngModel)]="group.name_EN"
+                 #nameEN="ngModel" required pattern="[a-z A-Z0-9\\_\\]+$">
+
+          <ng-container *ngIf="nameEN.invalid && (nameEN.dirty || nameEN.touched)">
+            <p class="error-message" *ngIf="nameEN.errors?.required">
+              Name in english is required!
+            </p>
+            <p class="error-message" *ngIf="nameEN.errors?.pattern">
+              name must be in english!
+            </p>
+          </ng-container>
+        </div>
+        <div class="col-md-6  form-group">
+          <label for="name_AR">{{'editGroup.GroupNameAR' | translate }}</label>
+          <input type="text" class="form-control" name="name_AR" [(ngModel)]="group.name_AR"
+                 #nameAR="ngModel" required pattern="^[\u0621-\u064A\u0660-\u0669\\_\\ ]+$">
+          <ng-container *ngIf="nameAR.invalid && (nameAR.dirty || nameAR.touched)">
+            <p class="error-message" *ngIf="nameAR.errors?.required">
+              Name in arabic is required!
+            </p>
+            <p class="error-message" *ngIf="nameAR.errors?.pattern">
+              name must be in arabic!
+            </p>
+          </ng-container>
+        </div>
+        </div>
+        <h5>{{'editGroup.SubHeader' | translate }}</h5>
+        <div class="form-group">
+        <p-pickList class="form-control" [source]="sourcPermissions" [target]="group.permissions" sourceHeader="{{'editGroup.sourceHeader' | translate }}" targetHeader="{{'editGroup.targetHeader' | translate }}"
+                [responsive]="true"  dragdrop="true">
+      <ng-template let-permission pTemplate="item">
+        <div class="ui-helper-clearfix">
+          <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{checkdir()==true ? permission.name_EN : permission.name_AR}}</div>
+        </div>
+      </ng-template>
+    </p-pickList>
+        </div>
+        <div class="form-group row">
+          <div class='col-sm-4'>
+          <button style="margin:5px;" class="btn btn-success" type="submit"
+                  [disabled]="form.pristine || form.invalid">
+            {{'editGroup.Save' | translate }}
+          </button>
+          <button style="margin:5px;" class="btn btn-success" type="reset">{{'editGroup.Cancel' | translate }}</button>
+        </div>
+        </div>
+      </form>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

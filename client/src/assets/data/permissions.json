@@ -1,0 +1,40 @@
+{
+  "data":[
+
+  {
+    "permissionId": "1",
+    "name_EN": "Add Groupe",
+    "name_AR": "اضافه مجموعه"
+  },
+  {
+    "permissionId": "2",
+    "name_EN": "مسح اذن",
+    "name_AR": "مسح مستخدم"
+  },
+  {
+    "permissionId": "3",
+    "name_EN": "Edit Permission",
+    "name_AR": "تعديل اذن"
+  },
+  {
+    "permissionId": "4",
+    "name_EN": "Add Permission",
+    "name_AR": "اضافه اذن"
+  },
+   {
+     "permissionId": "5",
+     "name_EN": "Delete Permission",
+     "name_AR": "مسح اذن"
+   },
+    {
+      "permissionId": "6",
+      "name_EN": "Edit User",
+      "name_AR": "تعديل مستخدم"
+    },
+    {
+      "permissionId": "7",
+      "name_EN": "Edit Group",
+      "name_AR": "تعديل مجموعة"
+    }
+  ]
+}

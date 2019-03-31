@@ -1,0 +1,137 @@
+<h1 id="title" class="title">{{'Auth.RegisterTitle' | translate }}</h1>
+<!--
+<nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
+  <p class="alert-title"><b>Oh snap!</b></p>
+  <ul class="alert-message-list">
+    <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
+  </ul>
+</nb-alert>-->
+
+<!--<nb-alert *ngIf="showMessages.success && messages?.length && !submitted" outline="success" role="alert">
+  <p class="alert-title"><b>Hooray!</b></p>
+  <ul class="alert-message-list">
+    <li *ngFor="let message of messages" class="alert-message">{{ message }}</li>
+  </ul>
+</nb-alert>-->
+
+<form id="form" #form="ngForm" (submit)="form.valid && register()"  aria-labelledby="title">
+
+  <div class="form-control-group">
+    <label class="label" for="name_EN">{{'Auth.NameEn' | translate }}</label>
+    <input nbInput fullWidth type="text" class="form-control" name="name_EN"
+           placeholder="{{'Auth.nameEnPlaceholder' | translate }}" [(ngModel)]="credentials.name_EN"
+           #nameEN="ngModel" required pattern="[a-z A-Z0-9\\_\\]+$">
+
+    <ng-container *ngIf="nameEN.invalid && (nameEN.dirty || nameEN.touched)">
+      <p class="error-message" *ngIf="nameEN.errors?.required">
+        {{'validation.requiredMsgEnName' | translate }}
+      </p>
+      <p class="error-message" *ngIf="nameEN.errors?.pattern">
+        {{'validation.patternMsgEnName' | translate }}
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="name_AR">{{'Auth.NameAr' | translate }}</label>
+    <input nbInput fullWidth type="text" class="form-control" name="name_AR"
+           placeholder="{{'Auth.nameArPlaceholder' | translate }}" [(ngModel)]="credentials.name_AR"
+           #nameAR="ngModel" required pattern="^[\u0621-\u064A\u0660-\u0669\\_\\ ]+$">
+
+    <ng-container *ngIf="nameAR.invalid && (nameAR.dirty || nameAR.touched)">
+      <p class="error-message" *ngIf="nameAR.errors?.required">
+        {{'validation.requiredMsgArName' | translate }}
+      </p>
+      <p class="error-message" *ngIf="nameAR.errors?.pattern">
+        {{'validation.patternMsgArName' | translate }}
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="email">{{'Auth.email' | translate }}</label>
+    <input nbInput fullWidth required
+           type="email" class="form-control" name="email" #email="ngModel"
+           placeholder="{{'Auth.emailPlaceholder' | translate }}" [(ngModel)]="credentials.email"
+           pattern=".+@.+\..+"  minlength="6">
+
+    <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+      <p class="error-message" *ngIf="email.errors?.required">
+        {{'validation.requiredMsgEmail' | translate }}
+      </p>
+      <p class="error-message" *ngIf="email.errors?.pattern">
+        {{'validation.patternMsgEmail' | translate }}
+      </p>
+      <p class="error-message" *ngIf="email.errors?.minlength">
+        {{'validation.minlengthMsgEmail' | translate }}
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="password">{{'Auth.Password' | translate }}</label>
+    <input nbInput fullWidth required class="form-control"
+           #password="ngModel" id="password" type="password" name="password"
+           placeholder="{{'Auth.passwordPlaceholder' | translate }}" [(ngModel)]="credentials.password"
+           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" minlength="6">
+
+    <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
+      <p class="error-message" *ngIf="password.errors?.required">
+        {{'validation.requiredMsgPassword' | translate }}
+      </p>
+      <p class="error-message" *ngIf="password.errors?.pattern">
+        {{'validation.patternMsgPassword' | translate }}
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="confirmPassword">{{'Auth.Confirmpassword' | translate }}</label>
+    <input nbInput fullWidth required
+           type="password" class="form-control" id="confirmPassword"
+           #confirmPassword="ngModel" name="confirmPassword"
+           placeholder="{{'Auth.confPasswordPlaceholder' | translate }}" [(ngModel)]="credentials.confirmPassword">
+
+    <ng-container *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+      <p class="error-message" *ngIf="confirmPassword.errors?.required">
+        {{'validation.requiredMsgConPassword' | translate }}
+      </p>
+      <p class="error-message" *ngIf="password.valid && confirmPassword.valid && credentials.password !== credentials.confirmPassword">
+        {{'validation.patternMsgConPassword' | translate }}
+      </p>
+    </ng-container>
+  </div>
+<!--
+  <div class="form-control-group accept-group" *ngIf="getConfigValue('forms.register.terms')">
+    <nb-checkbox name="terms" [(ngModel)]="user.terms" [required]="getConfigValue('forms.register.terms')">
+      Agree to <a href="#" target="_blank"><strong>Terms & Conditions</strong></a>
+    </nb-checkbox>
+  </div>-->
+
+  <button nbButton fullWidth status="success" type="submit" class="btn btn-success"
+          [disabled]="form.pristine || form.invalid || credentials.password !== credentials.confirmPassword">
+    {{'Auth.RegisterButton' | translate }}
+  </button>
+</form>
+
+<section *ngIf="socialLinks && socialLinks.length > 0" class="links" aria-label="Social sign in">
+  or enter with:
+  <div class="socials">
+    <ng-container *ngFor="let socialLink of socialLinks">
+      <a *ngIf="socialLink.link"
+         [routerLink]="socialLink.link"
+         [attr.target]="socialLink.target"
+         [attr.class]="socialLink.icon"
+         [class.with-icon]="socialLink.icon">{{ socialLink.title }}</a>
+      <a *ngIf="socialLink.url"
+         [attr.href]="socialLink.url"
+         [attr.target]="socialLink.target"
+         [attr.class]="socialLink.icon"
+         [class.with-icon]="socialLink.icon">{{ socialLink.title }}</a>
+    </ng-container>
+  </div>
+</section>
+
+<section class="another-action" aria-label="Sign in">
+  {{'Auth.checkAcount' | translate }} <a class="text-link" routerLink="/auth/login">{{'Auth.LogIn' | translate }}</a>
+</section>

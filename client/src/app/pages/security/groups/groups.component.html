@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+<nb-card>
+  <nb-card-header>{{'viewGroups.Header' | translate}}</nb-card-header>
+  <nb-card-body>
+<p-dataView [value]="groups" [paginator]="true" [rows]="10" [lazy]="true" >
+  <p-header>
+    <div class="row ">
+      <div class="col-md-2 form-group">
+    <button class="btn btn-success" (click)="addGroup()">{{'viewGroups.CreateButton' | translate}}</button>
+      </div>
+<!--      <div class="col-md-2 form-group">
+    <input type="search" pInputText placeholder="{{'viewGroups.SearchGroup' | translate}}" (keyup)="dv.filter($event.target.value)">
+    </div>-->
+    </div>
+  </p-header>
+
+  <ng-template let-group pTemplate="listItem">
+    <div class="ui-g row" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+
+      <div class="ui-g-12 ui-md-3 col-md-2" style="text-align:center">
+        <b>{{checkdir()==true ? group.name_EN : group.name_AR}}</b>
+        <!--<img src="assets/images/groups/{{group.name_EN}">-->
+      </div>
+
+      <div class="ui-g-12 ui-md-8 car-details col-md-6">
+        <div class="ui-g">
+          <div class="ui-g-10 ui-sm-6" *ngFor="let permission of group.permissions"><b>{{permission}}</b></div>
+        </div>
+      </div>
+
+      <div layout="column" layout-align="center end" class="col-md-4">
+        <button style="margin:5px;" class="btn btn-success" [routerLink]="['update', group._id]" >{{'viewGroups.Edit' | translate}}</button>
+        <button style="margin:5px;" class="btn btn-success" (click)="deleteGroup(group._id)">{{'viewGroups.Delete' | translate}}</button>
+      </div>
+    </div>
+  </ng-template>
+
+</p-dataView>
+
+</nb-card-body>
+<nb-card-footer></nb-card-footer>
+</nb-card>
+    </div>
+  </div>
+</div>

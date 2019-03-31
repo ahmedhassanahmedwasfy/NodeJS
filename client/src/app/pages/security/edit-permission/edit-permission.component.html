@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <nb-card>
+        <nb-card-header>{{'editPermissions.Header' | translate }}</nb-card-header>
+        <nb-card-body>
+      <form id="form" #form="ngForm" (submit)="form.valid && saveEditPermission()">
+            <div class="form-group">
+              <label for="name_EN">{{'editPermissions.EnglishName' | translate }}</label>
+              <input type="text" class="form-control" name="name_EN" [(ngModel)]="permission.name_EN"
+                     #nameEN="ngModel" required pattern="[a-z A-Z0-9\\_\\]+$">
+              <ng-container *ngIf="nameEN.invalid && (nameEN.dirty || nameEN.touched)">
+                <p class="text-danger" *ngIf="nameEN.errors?.required">
+                  Name in english is required!
+                </p>
+                <p class="text-danger" *ngIf="nameEN.errors?.pattern">
+                  name must be in english!
+                </p>
+              </ng-container>
+            </div>
+          <div class="form-group">
+            <label for="name_AR">{{'editPermissions.ArabicName' | translate }}</label>
+            <input type="text" class="form-control" name="name_AR" [(ngModel)]="permission.name_AR"
+                   #nameAR="ngModel" required pattern="^[\u0621-\u064A\u0660-\u0669\\_\\ ]+$">
+            <ng-container *ngIf="nameAR.invalid && (nameAR.dirty || nameAR.touched)">
+              <p class="text-danger" *ngIf="nameAR.errors?.required">
+                Name in arabic is required!
+              </p>
+              <p class="text-danger" *ngIf="nameAR.errors?.pattern">
+                name must be in arabic!
+              </p>
+            </ng-container>
+          </div>
+
+        <div class="form-group row">
+          <div class='col-sm-4'>
+          <button style="margin:5px;" class="btn btn-success" type="submit" [disabled]="form.pristine || form.invalid">
+            {{'editPermissions.Submit' | translate }}
+          </button>
+          <button style="margin:5px;" class="btn btn-success" type="reset">{{'editPermissions.Cancel' | translate }}</button>
+        </div>
+    </div>
+
+      </form>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

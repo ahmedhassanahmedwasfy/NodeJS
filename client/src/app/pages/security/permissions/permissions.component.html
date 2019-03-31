@@ -1,0 +1,32 @@
+<nb-card>
+  <nb-card-header>{{'viewPermissions.Header' | translate }}</nb-card-header>
+  <nb-card-body>
+    <div class="form-group row">
+    <div class='col-sm-1'>
+      <button class="btn btn-success" (click)=addPermission()>{{'viewPermissions.CreateButton' | translate }}</button>
+    </div>
+  </div>
+
+    <div>
+    <p-table [value]="permissions" [paginator]="true"  [rows]="10">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>{{'viewPermissions.EnglishName' | translate }}</th>
+          <th>{{'viewPermissions.ArabicName' | translate }}</th>
+          <th>{{'viewPermissions.Edit' | translate }}</th>
+          <th>{{'viewPermissions.Delete' | translate }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-permission>
+        <tr>
+          <td>{{permission.name_EN}}</td>
+          <td>{{permission.name_AR}}</td>
+          <td><button [routerLink]="['update', permission._id]"><i class="nb-edit"></i></button></td>
+          <td><button (click)="deletePermission(permission._id)"><i class="nb-trash"></i></button></td>
+        </tr>
+      </ng-template>
+    </p-table>
+    </div>
+  </nb-card-body>
+  <nb-card-footer></nb-card-footer>
+</nb-card>

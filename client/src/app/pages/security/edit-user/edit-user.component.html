@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <nb-card>
+        <nb-card-header>{{'editUsers.Header' | translate}}</nb-card-header>
+        <nb-card-body>
+      <form id="form" #form="ngForm" (submit)="form.valid && saveEditUser()">
+        <div class="row ">
+          <div class="col-md-6 form-group">
+          <label for="name_EN">{{'editUsers.NameEN' | translate}}</label>
+          <input type="text" class="form-control" name="name_EN" [(ngModel)]="user.name_EN"
+                 #nameEN="ngModel" required pattern="[a-z A-Z0-9\\_\\]+$">
+            <ng-container *ngIf="nameEN.invalid && (nameEN.dirty || nameEN.touched)">
+              <p class="error-message" *ngIf="nameEN.errors?.required">
+                Name in english is required!
+              </p>
+              <p class="error-message" *ngIf="nameEN.errors?.pattern">
+                name must be in english!
+              </p>
+            </ng-container>
+        </div>
+          <div class="col-md-6  form-group">
+          <label for="name_AR">{{'editUsers.NameAR' | translate}}</label>
+          <input type="text" class="form-control" name="name_AR" [(ngModel)]="user.name_AR"
+                 #nameAR="ngModel" required pattern="^[\u0621-\u064A\u0660-\u0669\\_\\ ]+$">
+            <ng-container *ngIf="nameAR.invalid && (nameAR.dirty || nameAR.touched)">
+              <p class="error-message" *ngIf="nameAR.errors?.required">
+                Name in arabic is required!
+              </p>
+              <p class="error-message" *ngIf="nameAR.errors?.pattern">
+                name must be in arabic!
+              </p>
+            </ng-container>
+        </div>
+        </div>
+        <div class="row ">
+          <div class="col-md-6 form-group">
+          <label for="email">{{'editUsers.Email' | translate}}</label>
+          <input type="text" class="form-control" name="email" [(ngModel)]="user.email"
+                 required pattern=".+@.+\..+"  minlength="6" #email="ngModel">
+            <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+              <p class="error-message" *ngIf="email.errors?.required">
+                Email is required!
+              </p>
+              <p class="error-message" *ngIf="email.errors?.pattern">
+                Email should be the real one!
+              </p>
+              <p class="error-message" *ngIf="email.errors?.minlength">
+                Email must be at least 6 characters long!
+              </p>
+            </ng-container>
+        </div>
+          <div class="col-md-6 form-group">
+            <label for="password">{{'editUsers.Password' | translate}}</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #password="ngModel"
+             required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$">
+            <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
+              <p class="error-message" *ngIf="password.errors?.required">
+                Password is required!
+              </p>
+              <p class="error-message" *ngIf="password.errors?.pattern">
+                Password should contains at least 1 Uppercase, At least 1 Lowercase,
+                At least 1 Number, At least 1 Symbol!
+              </p>
+            </ng-container>
+    </div>
+        </div>
+
+        <h5>{{'editUsers.SubHeader1' | translate }}</h5>
+        <div class="form-group">
+        <p-pickList class="form-control" [source]="sourcPermissions" [target]="user.permissions" sourceHeader="{{'editUsers.sourceHeader' | translate}}"
+                    targetHeader="{{'editUsers.targetHeader' | translate}}"
+                    [responsive]="true"  dragdrop="true">
+          <ng-template let-permission pTemplate="item">
+            <div class="ui-helper-clearfix">
+              <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{checkdir()==true ? permission.name_EN : permission.name_AR}}</div>
+            </div>
+          </ng-template>
+        </p-pickList>
+    </div>
+
+        <h5>{{'editUsers.SubHeader2' | translate }}</h5>
+        <div class="form-group">
+        <p-pickList class="form-control" [source]="sourceGroups" [target]="user.groups" sourceHeader="{{'editUsers.sourceHeader' | translate}}"
+                    targetHeader="{{'editUsers.targetHeader' | translate}}" [responsive]="true"  dragdrop="true">
+          <ng-template let-group pTemplate="item">
+            <div class="ui-helper-clearfix">
+              <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{checkdir()== true ? group.name_EN : group.name_AR }}</div>
+            </div>
+          </ng-template>
+        </p-pickList>
+        </div>
+        <div class="form-group row">
+          <div class='col-sm-4'>
+            <button style="margin:5px;" class="btn btn-success" type="submit"
+                    [disabled]="form.pristine || form.invalid">{{'editUsers.Submit' | translate}}</button>
+            <button style="margin:5px;" class="btn btn-success" type="reset" >{{'editUsers.Cancel' | translate}}</button>
+          </div>
+        </div>
+      </form>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

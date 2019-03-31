@@ -1,0 +1,30 @@
+{
+  "data":[
+
+    {
+      "name_EN": "Admin",
+      "name_AR": "ادمن",
+      "permissions": ["Add Groupe", "Add User", "Delete User", "Edit Group", "Delete Group"]
+    },
+    {
+      "name_EN": "Developer",
+      "name_AR": "مطور",
+      "permissions": ["Add Groupe", "Edit Permission"]
+    },
+    {
+      "name_EN": "User",
+      "name_AR": "مستخدم",
+      "permissions": ["Edit Profile"]
+    },
+    {
+      "name_EN": "Team Leader",
+      "name_AR": "مدير",
+      "permissions": ["Add Groupe", "Delete User", "Edit User"]
+    },
+    {
+      "name_EN": "Project Manager",
+      "name_AR": "مدير المشروع",
+      "permissions": ["Edit Groupe", "Delete permission", "Edit permission", "Add Groupe", "Add User", "Delete User", "Edit Group", "Delete Group"]
+    }
+  ]
+}
