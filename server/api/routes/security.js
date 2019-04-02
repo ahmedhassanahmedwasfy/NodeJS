@@ -55,7 +55,8 @@ router.delete('/groups/delete/:id', function (req, res) {
 });
 
 
-///////////GroUsersups////////////
+///////////User////////////
+///////////User////////////
 
 router.get('/users', function(req,res){
     ctrlUser.index(req,res)

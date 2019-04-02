@@ -11,11 +11,11 @@
           <input type="text" class="form-control" name="name_EN" [(ngModel)]="user.name_EN"
                  #nameEN="ngModel" required pattern="[a-z A-Z0-9\\_\\]+$">
             <ng-container *ngIf="nameEN.invalid && (nameEN.dirty || nameEN.touched)">
-              <p class="error-message" *ngIf="nameEN.errors?.required">
-                Name in english is required!
+              <p class="text-danger" *ngIf="nameEN.errors?.required">
+                {{'validation.requiredMsgEnName' | translate }}
               </p>
-              <p class="error-message" *ngIf="nameEN.errors?.pattern">
-                name must be in english!
+              <p class="text-danger" *ngIf="nameEN.errors?.pattern">
+                {{'validation.patternMsgEnName' | translate }}
               </p>
             </ng-container>
         </div>
@@ -24,11 +24,11 @@
           <input type="text" class="form-control" name="name_AR" [(ngModel)]="user.name_AR"
                  #nameAR="ngModel" required pattern="^[\u0621-\u064A\u0660-\u0669\\_\\ ]+$">
             <ng-container *ngIf="nameAR.invalid && (nameAR.dirty || nameAR.touched)">
-              <p class="error-message" *ngIf="nameAR.errors?.required">
-                Name in arabic is required!
+              <p class="text-danger" *ngIf="nameAR.errors?.required">
+                {{'validation.requiredMsgArName' | translate }}
               </p>
-              <p class="error-message" *ngIf="nameAR.errors?.pattern">
-                name must be in arabic!
+              <p class="text-danger" *ngIf="nameAR.errors?.pattern">
+                {{'validation.patternMsgArName' | translate }}
               </p>
             </ng-container>
         </div>
@@ -39,14 +39,14 @@
           <input type="text" class="form-control" name="email" [(ngModel)]="user.email"
                  required pattern=".+@.+\..+"  minlength="6" #email="ngModel">
             <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
-              <p class="error-message" *ngIf="email.errors?.required">
-                Email is required!
+              <p class="text-danger" *ngIf="email.errors?.required">
+                {{'validation.requiredMsgEmail' | translate }}
               </p>
-              <p class="error-message" *ngIf="email.errors?.pattern">
-                Email should be the real one!
+              <p class="text-danger" *ngIf="email.errors?.pattern">
+                {{'validation.patternMsgEmail' | translate }}
               </p>
-              <p class="error-message" *ngIf="email.errors?.minlength">
-                Email must be at least 6 characters long!
+              <p class="text-danger" *ngIf="email.errors?.minlength">
+                {{'validation.minlengthMsgEmail' | translate }}
               </p>
             </ng-container>
         </div>
@@ -55,12 +55,11 @@
             <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #password="ngModel"
              required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$">
             <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
-              <p class="error-message" *ngIf="password.errors?.required">
-                Password is required!
+              <p class="text-danger" *ngIf="password.errors?.required">
+                {{'validation.requiredMsgPassword' | translate }}
               </p>
-              <p class="error-message" *ngIf="password.errors?.pattern">
-                Password should contains at least 1 Uppercase, At least 1 Lowercase,
-                At least 1 Number, At least 1 Symbol!
+              <p class="text-danger" *ngIf="password.errors?.pattern">
+                {{'validation.patternMsgPassword' | translate }}
               </p>
             </ng-container>
     </div>

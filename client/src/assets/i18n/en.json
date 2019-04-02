@@ -4,6 +4,7 @@
     "error": "Operation Failed",
     "title": "Notification"
   },
+
 	"HOME": {
 		"SELECT": "Change language",
 		"TITLE": "Hello Angular with ngx-translate!"
@@ -90,20 +91,6 @@
     "deleteSucc": "Users Deleted Sucessfully!"
   },
 
-  "validation": {
-    "requiredMsgEnName": "Name in english is required!",
-    "patternMsgEnName": "name must be in english!",
-    "requiredMsgArName": "Name in arabic is required!",
-    "patternMsgArName": "name must be in arabic!",
-    "requiredMsgEmail": "Email is required!",
-    "patternMsgEmail": "Email should be the real one!",
-    "minlengthMsgEmail": "Email must be at least 6 characters long!",
-    "requiredMsgPassword": "Password is required!",
-    "patternMsgPassword": "Password should contains at least 1 Uppercase, At least 1 Lowercase,\n        At least 1 Number, At least 1 Symbol and at least 6 char!",
-    "requiredMsgConPassword": "Password confirmation is required!",
-    "patternMsgConPassword": "Password does not match the confirm password!"
-  },
-
   "Auth": {
     "RegisterTitle": "Register",
     "NameEn": "Full name in English:",
@@ -121,6 +108,31 @@
     "emailPlaceholder": "Enter email",
     "nameEnPlaceholder": "Enter your name in English",
     "nameArPlaceholder": "Enter your name in Arabic"
+  },
+
+  "validation": {
+    "requiredMsgEnName": "Name in english is required!",
+    "patternMsgEnName": "Name must be in english!",
+    "requiredMsgArName": "Name in arabic is required!",
+    "patternMsgArName": "Name must be in arabic!",
+    "requiredMsgEmail": "Email is required!",
+    "patternMsgEmail": "Email should be the real one!",
+    "minlengthMsgEmail": "Email must be at least 6 characters long!",
+    "requiredMsgPassword": "Password is required!",
+    "patternMsgPassword": "Password should contains at least 1 Uppercase, At least 1 Lowercase,\n        At least 1 Number, At least 1 Symbol and at least 6 char!",
+    "requiredMsgConPassword": "Password confirmation is required!",
+    "patternMsgConPassword": "Password does not match the confirm password!",
+    "requiredMsgEnPer": "Permission name in english is required!",
+    "patternMsgEnPer": "Permission name must be in english!",
+    "requiredMsgArPer": "Permission name in arabic is required!",
+    "patternMsgArPer": "Permission name must be in arabic!",
+    "requiredMsgEnGr": "Group name in english is required!",
+    "patternMsgEnGr": "Group name must be in english!",
+    "requiredMsgArGr": "Group name in arabic is required!",
+    "patternMsgArGr": "Group name must be in arabic!"
+
   }
+
+
 }
 

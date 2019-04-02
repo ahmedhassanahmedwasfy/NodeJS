@@ -4,6 +4,7 @@
     "error": "فشلت المعاملة!",
     "title": "إخطار"
   },
+
 	"HOME": {
 		"SELECT": "غير اللغة",
 		"TITLE": "مرحبا الزاوي مع ترجمة ngx!"
@@ -69,7 +70,6 @@
     "Cancel": "رجوع"
   },
 
-
   "groupsToasters": {
     "successHeader": "رساله نجاح!",
     "updateSucc": "تم تحديث المجموعات بنجاح!",
@@ -86,20 +86,6 @@
     "successHeader": "رساله نجاح!",
     "updateSucc": "تم تحديث المستخدمين بنجاح!",
     "deleteSucc": "تم مسح المستخدم بنجاح!"
-  },
-
-  "validation": {
-    "requiredMsgEnName": "الاسم بالانجليزيه مطلوب!",
-    "patternMsgEnName": "الاسم يجب ان يكون بالانجليزيه!",
-    "requiredMsgArName": "الاسم بالعربيه مطلوب!",
-    "patternMsgArName": "الاسم يجب ان يكون بالعربيه!",
-    "requiredMsgEmail": "البريد الالكتروني مطلوب!",
-    "patternMsgEmail": "البريد الالكتروني يجب ان يكون حقيقي!",
-    "minlengthMsgEmail": "البريد الالكتروني يجب ان يتكون من 6حروف علي الاقل!",
-    "requiredMsgPassword": "الرقم السري مطلوب!",
-    "patternMsgPassword": "الرقم السري يجب ان يحتوي علي حرف صغير علي الاقل ,حرف كبير عالاقل, ورمز خاص عالاقل و6 حروف علي الاقل! ",
-    "requiredMsgConPassword": "تاكيد الرقم السري مطلوب!",
-    "patternMsgConPassword": "الرقم السري لا يطابق تاكيد الرقم السري!"
   },
 
   "Auth": {
@@ -119,6 +105,28 @@
     "emailPlaceholder": "ادخل البريد الالكتروني",
     "nameEnPlaceholder": "ادخل الاسم بالانجليزيه",
     "nameArPlaceholder": "ادخل الاسم بالعربيه"
+  },
+
+  "validation": {
+    "requiredMsgEnName": "الاسم بالانجليزيه مطلوب!",
+    "patternMsgEnName": "الاسم يجب ان يكون بالانجليزيه!",
+    "requiredMsgArName": "الاسم بالعربيه مطلوب!",
+    "patternMsgArName": "الاسم يجب ان يكون بالعربيه!",
+    "requiredMsgEmail": "البريد الالكتروني مطلوب!",
+    "patternMsgEmail": "البريد الالكتروني يجب ان يكون حقيقي!",
+    "minlengthMsgEmail": "البريد الالكتروني يجب ان يتكون من 6حروف علي الاقل!",
+    "requiredMsgPassword": "الرقم السري مطلوب!",
+    "patternMsgPassword": "الرقم السري يجب ان يحتوي علي حرف صغير علي الاقل ,حرف كبير عالاقل, ورمز خاص عالاقل و6 حروف علي الاقل! ",
+    "requiredMsgConPassword": "تاكيد الرقم السري مطلوب!",
+    "patternMsgConPassword": "الرقم السري لا يطابق تاكيد الرقم السري!",
+    "requiredMsgEnPer": "اسم السماحيه بالانجليزيه مطلوب!",
+    "patternMsgEnPer": "اسم السماحيه يجب ان يكون بالانجليزيه!",
+    "requiredMsgArPer": "اسم السماحيه بالعربيه مطلوب!",
+    "patternMsgArPer": "اسم السماحيه يجب ان يكون بالعربيه!",
+    "requiredMsgEnGr": "اسم المجموعه بالانجليزيه مطلوب!",
+    "patternMsgEnGr": "اسم المجموعه يجب ان يكون بالانجليزيه!",
+    "requiredMsgArGr": "اسم المجموعه بالعربيه مطلوب!",
+    "patternMsgArGr": "اسم المجموعه يجب ان يكون بالعربيه!"
   }
 
 }

@@ -11,10 +11,10 @@
                      #nameEN="ngModel" required pattern="[a-z A-Z0-9\\_\\]+$">
               <ng-container *ngIf="nameEN.invalid && (nameEN.dirty || nameEN.touched)">
                 <p class="text-danger" *ngIf="nameEN.errors?.required">
-                  Name in english is required!
+                  {{'validation.requiredMsgEnPer' | translate }}
                 </p>
                 <p class="text-danger" *ngIf="nameEN.errors?.pattern">
-                  name must be in english!
+                  {{'validation.patternMsgEnPer' | translate }}
                 </p>
               </ng-container>
             </div>
@@ -24,10 +24,10 @@
                    #nameAR="ngModel" required pattern="^[\u0621-\u064A\u0660-\u0669\\_\\ ]+$">
             <ng-container *ngIf="nameAR.invalid && (nameAR.dirty || nameAR.touched)">
               <p class="text-danger" *ngIf="nameAR.errors?.required">
-                Name in arabic is required!
+                {{'validation.requiredMsgArPer' | translate }}
               </p>
               <p class="text-danger" *ngIf="nameAR.errors?.pattern">
-                name must be in arabic!
+                {{'validation.patternMsgArPer' | translate }}
               </p>
             </ng-container>
           </div>

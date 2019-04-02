@@ -1,13 +1,13 @@
 import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
-  {
-    title: 'E-commerce',
+  //{
+    /*title: 'E-commerce',
     icon: 'nb-e-commerce',
     link: '/pages/dashboard',
     home: true,
-  },
-  {
+  },*/
+  /*{
     title: 'IoT Dashboard',
     icon: 'nb-home',
     link: '/pages/iot-dashboard',
@@ -69,7 +69,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/extra-components/chat',
       },
     ],
-  },
+  },*/
   {
     title: 'PrimeNGDemo',
     icon: 'nb-compose',
@@ -126,7 +126,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
 
-  {
+ /* {
     title: 'shopping',
     icon: 'nb-compose',
     children: [
@@ -139,10 +139,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/shopping/cart',
       },
     ],
-  },
+  },*/
 
   
-  {
+  /*{
     title: 'Forms',
     icon: 'nb-compose',
     children: [
@@ -304,7 +304,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/miscellaneous/404',
       },
     ],
-  },
+  },*/
   {
     title: 'Auth',
     icon: 'nb-locked',
@@ -317,14 +317,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Register',
         link: '/auth/register',
       },
-      {
+      /*{
         title: 'Request Password',
         link: '/auth/request-password',
       },
       {
         title: 'Reset Password',
         link: '/auth/reset-password',
-      },
+      },*/
     ],
   },
 ];

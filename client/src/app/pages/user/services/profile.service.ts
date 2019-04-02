@@ -8,12 +8,12 @@ import {User} from "../../security/seeds/user";
   providedIn: 'root'
 })
 export class ProfileService {
-  url = 'http://localhost:4000/api/security/users';
+  url = 'http://localhost:4000/api/user/profile';
 
   constructor(private http: HttpClient, private router: Router) { }
 
   viewProfile(userId): Observable<User> {
-    return this.http.get<User>(this.url + '/view/' + userId);
+    return this.http.get<User>(this.url + userId);
   }
 
 

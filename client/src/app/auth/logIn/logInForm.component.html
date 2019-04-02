@@ -40,8 +40,7 @@
     <label class="label" for="password">{{'Auth.Password' | translate }}</label>
     <input nbInput fullWidth required name="password" type="password" id="password"
            [(ngModel)]="credentials.password" #password="ngModel" placeholder="{{'Auth.passwordPlaceholder' | translate }}"
-           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
-           minlength="6">
+           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{6,30}$">
 
     <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
       <p class="error-message" *ngIf="password.errors?.required">

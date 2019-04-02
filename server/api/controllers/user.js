@@ -7,12 +7,12 @@ var sendJSONresponse = function (res, status, content) {
     res.status(status);
     res.json(content);
 };
-const Joi = require('joi');
+/*const Joi = require('joi');
 const schema = Joi.object().keys({
-    name: Joi.string().alphanum().min(3).max(30).required(),
+    name: Joi.string().alphanum().required(),
     password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).min(3).required(),
     email: Joi.string().email({ minDomainAtoms: 2 }).required()
-})
+})*/
 
 module.exports.index = function (req, res, next) {
     User.find(function (err, users) {

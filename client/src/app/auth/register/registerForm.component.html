@@ -73,7 +73,7 @@
     <input nbInput fullWidth required class="form-control"
            #password="ngModel" id="password" type="password" name="password"
            placeholder="{{'Auth.passwordPlaceholder' | translate }}" [(ngModel)]="credentials.password"
-           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" minlength="6">
+           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$">
 
     <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
       <p class="error-message" *ngIf="password.errors?.required">
