@@ -10,7 +10,8 @@ var securityApi = require('./security');
 
 router.use('/cart',cartApi)
 router.use('/product',interceptor.verifyToken,productApi)
-router.use('/user',profileApi)
 router.use('/security',securityApi)
+router.use('/user',profileApi)
+
 
 module.exports=router;

@@ -6,20 +6,24 @@
          <nb-card-body>
            <div class="row">
               <div class="col-md-6 form-group">
-          <label >Full name in English</label>
-          <p>sdfghgfd</p>
+                 <label >Full name in English</label>
+                 <input type="text" class="form-control" name="name_EN" [(ngModel)]="userDetails.name_EN"
+                       #nameEN="ngModel" required pattern="[a-z A-Z0-9\\_\\]+$">
         </div>
            </div>
         <div class="row">
           <div class="col-md-6 form-group">
           <label>Full name in Arabic</label>
-          <p >sdfghgfd</p>
+            <p>{{user.name_AR}}</p>
+            <input type="text" class="form-control" name="name_EN" [(ngModel)]="userDetails.name_AR"
+                   #nameEN="ngModel" required pattern="[a-z A-Z0-9\\_\\]+$">
         </div>
         </div>
         <div class="row">
           <div class="col-md-6 form-group">
           <label>Email</label>
-          <p>asdftgg</p>
+            <input type="text" class="form-control" name="name_EN" [(ngModel)]="userDetails.email"  readonly
+                   #nameEN="ngModel" required pattern="[a-z A-Z0-9\\_\\]+$">
         </div>
       </div>
          </nb-card-body>

@@ -1,17 +1,14 @@
 var mongoose = require('mongoose');
 var User = require('../models/users');
 
-module.exports.profileRead = function(req, res, next) {
-  let id = req.payload._id;
-  if (!id) {
-    res.status(401).json({
-      "message" : "UnauthorizedError: private profile"
-    });
-  } else {
 
-    User.findById(id, function (err, user) {
-      res.json(user);
-    });
-  }
-
-};
+module.exports.userProfile = async function(req, res, next) {
+   await User.findOne({ _id: req._id },
+      (err, user) => {
+        if (!user)
+          return res.status(404).json({ status: false, message: 'User record not found.' });
+        else
+          return res.status(200).json({ status: true, user : _.pick(user,['fullName','email']) });
+      }
+  );
+}

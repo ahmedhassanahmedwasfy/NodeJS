@@ -44,8 +44,11 @@ module.exports.new = async function (req, res) {
             salt: salt,
             hash: crypto.pbkdf2Sync(req.body.password, salt, 1000, 64, 'sha512').toString('hex')
 }];
+    //start session
+    // begin transation
+    //pass session obj to create function
     let dbobject = await userRepo.create(objs);
-
+// save
     if (dbobject.err) {
         sendJSONresponse(res, 500, {'error': dbobject.err});
     }

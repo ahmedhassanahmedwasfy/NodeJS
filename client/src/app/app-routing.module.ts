@@ -3,15 +3,12 @@ import { NgModule } from '@angular/core';
 // import {NbAuthComponent} from "./auth/auth.component";
 import {NbLoginComponent} from "./auth/logIn/logInForm.component";
 import {NbRegisterComponent} from "./auth/register/registerForm.component";
-import {NbLogoutComponent, NbRequestPasswordComponent, NbResetPasswordComponent} from "@nebular/auth";
+import {NbLogoutComponent} from "@nebular/auth";
   import {
    NbAuthComponent,
-//   NbLoginComponent,
-//   NbLogoutComponent,
-//   NbRegisterComponent,
-//   NbRequestPasswordComponent,
-//   NbResetPasswordComponent,
   } from '@nebular/auth';
+import {NBForgetPasswordComponent} from "./auth/forget-password/forget-password.component";
+import {NbResetPasswordComponent} from "./auth/reset-password/reset-password.component";
 
 const routes: Routes = [
   { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule' },
@@ -37,10 +34,10 @@ const routes: Routes = [
       },
       {
         path: 'request-password',
-        component: NbRequestPasswordComponent,
+        component: NBForgetPasswordComponent,
       },
       {
-        path: 'reset-password',
+        path: 'reset-password/:token',
         component: NbResetPasswordComponent,
       },
     ],

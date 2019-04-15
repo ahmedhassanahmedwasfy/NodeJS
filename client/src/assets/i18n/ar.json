@@ -10,6 +10,11 @@
 		"TITLE": "مرحبا الزاوي مع ترجمة ngx!"
 	},
 
+  "Menu": {
+    "security": "غير اللغة",
+    "Auth": "مرحبا الزاوي مع ترجمة ngx!"
+  },
+
   "viewGroups": {
     "Header": "المجموعات والسماحات",
     "CreateButton": "اضافه مجموعه",
@@ -88,6 +93,18 @@
     "deleteSucc": "تم مسح المستخدم بنجاح!"
   },
 
+  "forgetPassword": {
+    "Header": "نسيت كلمة المرور",
+    "subtitle": "أدخل عنوان بريدك الإلكتروني وسنرسل رابطًا لإعادة تعيين كلمة المرور الخاصة بك",
+    "Requestpassword": "طلب كلمة المرور"
+  },
+
+  "resetPassword": {
+    "Header": "تغيير كلمه المرور",
+    "subtitle": "يرجى ضبط كلمة مرور جديدة",
+    "Changepassword": "تغيير كلمه المرور"
+  },
+
   "Auth": {
     "RegisterTitle": "تسجيل",
     "NameEn": "الاسم بالكامل بالانجليزيه:",
@@ -97,6 +114,7 @@
     "Confirmpassword": "تاكيد الرقم السري:",
     "RegisterButton": "تسجيل",
     "LogIn": "تسجيل الدخول",
+    "forgetPassword": "هل نسيت كلمه المرور؟",
     "checkAcount": "تمتلك حساب؟",
     "subTitle": "اهلا! سجل دخولك بالبريد الالكتروني",
     "checkRegister": "هل لديك حساب؟",
@@ -105,6 +123,16 @@
     "emailPlaceholder": "ادخل البريد الالكتروني",
     "nameEnPlaceholder": "ادخل الاسم بالانجليزيه",
     "nameArPlaceholder": "ادخل الاسم بالعربيه"
+  },
+
+  "AuthToasters": {
+    "successHeader": "رساله نجاح!",
+    "failedHeader": "رساله فشل!",
+    "loginSucc": "قمت بتسجيل الدخول بنجاح!",
+    "loginFailed": "كلمة المرور أو اسم المستخدم غير صحيح ، يرجى المحاولة مرة أخرى!",
+    "registerSucc": "لقد سجلت بنجاح!",
+    "requestSucc": "إرسال البريد الإلكتروني بنجاح ، يرجى التحقق من البريد الإلكتروني الخاص بك!",
+    "resetSucc": "تم إعادة ضبط كلمة المرور بنجاح!"
   },
 
   "validation": {

@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
-var dbURI = 'mongodb://localhost/meanAuth';
+var dbURI = 'mongodb+srv://sa:010203010203@cluster0-9tqii.gcp.mongodb.net/MyDoctor?retryWrites=true';
+// var dbURI = 'mongodb://localhost/meanAuth';
+
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGOLAB_URI;
 }

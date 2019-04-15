@@ -22,6 +22,7 @@ import {NbToastrModule} from "@nebular/theme";
 import { ToastrModule } from 'ngx-toastr';
 import { NgxValidationMessagesModule } from "ngx-validation-messages";
 import {NbAuthModule} from "./auth/auth.module";
+import {NotificationService} from "./@core/services/notification.service";
 
 //import {ErrorDialogService} from "./@core/utils/error-dialog-service.service";
 @NgModule({
@@ -49,7 +50,8 @@ import {NbAuthModule} from "./auth/auth.module";
   ],
   bootstrap: [AppComponent],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' }
+    { provide: APP_BASE_HREF, useValue: '/' },
+    NotificationService
     // ,ErrorDialogService,
     // { provide: HTTP_INTERCEPTORS, useClass: interceptor, multi: true }
     // ,ErrorDialogService,

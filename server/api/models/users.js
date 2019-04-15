@@ -19,7 +19,9 @@ var userSchema = new mongoose.Schema({
   hash: String,
   salt: String,
   permissions: [],
-  groups: []
+  groups: [],
+  resetPasswordToken: String,
+  resetPasswordExpires: Date
 });
 
 module.exports= mongoose.model('users', userSchema);

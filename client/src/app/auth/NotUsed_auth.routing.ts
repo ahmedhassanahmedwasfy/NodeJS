@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {NbLoginComponent} from "./logIn/logInForm.component";
 import {NbRegisterComponent} from "./register/registerForm.component";
 import {NbAuthComponent} from "@nebular/auth";
+import {NbResetPasswordComponent} from "./reset-password/reset-password.component";
 
 
 const routes: Routes = [
@@ -19,12 +20,11 @@ const routes: Routes = [
     path: 'register',
     component: NbRegisterComponent
   },
-  /*{
-    path: 'profileForm',
-    component: ProfileFormComponent,
-    canActivate: [AuthGuardService]
+  {
+    path: 'reset-password/:token',
+    component: NbResetPasswordComponent
 
-  }*/]
+  }]
   },
 ];
 

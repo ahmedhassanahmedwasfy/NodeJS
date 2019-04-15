@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService, TokenPayload } from '../services/Auth.service';
 import { Router } from '@angular/router';
 import {NbAuthSocialLink} from "../auth.options";
+import {NotificationService} from "../../@core/services/notification.service";
 
 
 @Component({
@@ -18,19 +19,18 @@ export class NbLoginComponent implements OnInit {
     email: '',
     password: ''
   };
-  constructor(private auth: AuthService, private router: Router) {
-    //this.socialLinks = this.getConfigValue('forms.login.socialLinks');
-
+  constructor(private auth: AuthService, private router: Router, private notificationService: NotificationService) {
   }
 
   ngOnInit() {
   }
-
   login() {
     this.auth.login(this.credentials).subscribe(() => {
-      this.router.navigateByUrl('pages/user/profile');
+      this.notificationService.showToasterSuccess('AuthToasters.loginSucc','AuthToasters.successHeader');
+      this.router.navigateByUrl('/auth/profile');
     }, (err) => {
       console.error(err);
+
     }); 
   }
 }

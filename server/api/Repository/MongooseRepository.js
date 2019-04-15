@@ -17,8 +17,6 @@ class MongooseRepository {
        }catch (e) {
             err=e;
        }
-
-        // let {err,res}= await this.collection.find().lean().exec();
        return {err,data};
     }
 
@@ -39,8 +37,6 @@ class MongooseRepository {
         }catch (e) {
             err=e;
         }
-
-        // let {err,res}= await this.collection.find().lean().exec();
         return {err,data};
     }
 
@@ -52,8 +48,6 @@ class MongooseRepository {
         }catch (e) {
             err=e;
         }
-
-        // let {err,res}= await this.collection.find().lean().exec();
         return {err,data};
     }
 
@@ -65,8 +59,6 @@ class MongooseRepository {
         }catch (e) {
             err=e;
         }
-
-        // let {err,res}= await this.collection.find().lean().exec();
         return {err,data};
     }
 
@@ -78,7 +70,6 @@ class MongooseRepository {
         }catch (e) {
             err=e;
         }
-        // let {err,res}= await this.collection.find().lean().exec();
         return {err,data};
     }
 

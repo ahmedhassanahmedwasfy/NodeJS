@@ -21,7 +21,10 @@ export interface TokenPayload {
   name_EN?: string;
   name_AR?: string;
   confirmPassword?: string;
-
+}
+export interface NewPasswords {
+  password: string;
+  confirmPassword?: string
 }
 
 @Injectable()
@@ -30,12 +33,12 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  private saveToken(token: string): void {
+  public saveToken(token: string): void {
     localStorage.setItem('token', token);
     this.token = token;
   }
 
-  private getToken(): string {
+  public getToken(): string {
     if (!this.token) {
       this.token = localStorage.getItem('token');
     }
@@ -63,7 +66,7 @@ export class AuthService {
     }
   }
 
-  private request(method: 'post'|'get', type: 'login'|'register'|'profile', user?: TokenPayload): Observable<any> {
+  private request(method: 'post'|'get', type: 'login'|'register' | 'forgetPassword' | 'resetPassword', user?: TokenPayload): Observable<any> {
     let base;
 
     if (method === 'post') {
@@ -92,13 +95,28 @@ export class AuthService {
     return this.request('post', 'login', user);
   }
 
-  public profile(): Observable<any> {
+/*  public profile(): Observable<any> {
     return this.request('get', 'profile');
-  }
+  }*/
 
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem('token');
     this.router.navigateByUrl('/');
   }
+
+  public requestPassword(data){
+    return this.http.post('http://localhost:4000/api/security/forgetPassword', data);
+  }
+
+
+  public saveNewPassword(token, data){
+    return this.http.post('http://localhost:4000/api/security/resetPassword/' + token, data);
+  }
+
+
+
+
+
+
 }

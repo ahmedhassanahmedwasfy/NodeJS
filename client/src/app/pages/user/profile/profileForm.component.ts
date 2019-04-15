@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfileService} from "../services/profile.service";
-//import { AuthService, UserDetails } from '../services/Auth.service';
+import {ActivatedRoute} from "@angular/router";
+import {AuthService} from "../../../auth/services/Auth.service";
 
 @Component({
   selector: 'ngx-profileForm',
@@ -9,19 +10,22 @@ import {ProfileService} from "../services/profile.service";
 })
 export class ProfileComponent implements OnInit {
 
-  UserDetails: any;
+  userDetails: any = {};
 
-  constructor(private profileService: ProfileService) {
+  constructor(private profileService: ProfileService, private route: ActivatedRoute) {
   }
 
-  ngOnInit() {
-    /*this.profileService.viewProfile(userId).subscribe(user => {
-      this.UserDetails = user;
-    }, (err) => {
-      console.error(err);
-    });
-  }*/
-  }
 
+  async ngOnInit() {
+    await this.profileService.getUserProfile().subscribe(
+      res => {
+        this.userDetails = res['user'];
+      },
+      err => {
+        console.log(err);
+
+      }
+    );
+  }
 }
 

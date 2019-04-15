@@ -91,6 +91,18 @@
     "deleteSucc": "Users Deleted Sucessfully!"
   },
 
+  "forgetPassword": {
+    "Header": "Forgot Password",
+    "subtitle": "Enter your email address and we’ll send a link to reset your password",
+    "Requestpassword": "Request password"
+  },
+
+  "resetPassword": {
+    "Header": "Change password",
+    "subtitle": "Please set a new password",
+    "Changepassword": " Change password"
+  },
+
   "Auth": {
     "RegisterTitle": "Register",
     "NameEn": "Full name in English:",
@@ -99,7 +111,8 @@
     "Password": "Password:",
     "Confirmpassword": "Confirm password:",
     "RegisterButton": "Register",
-    "LogIn": "Log in",
+    "LogIn": "Log In",
+    "forgetPassword": "Forgot Password?",
     "checkAcount": "Already have an account?",
     "subTitle": "Hello! Log in with your email.",
     "checkRegister": "Don't have an account?",
@@ -109,6 +122,17 @@
     "nameEnPlaceholder": "Enter your name in English",
     "nameArPlaceholder": "Enter your name in Arabic"
   },
+
+  "AuthToasters": {
+    "successHeader": "Success Message!",
+    "failedHeader": "Failed Message!",
+    "loginSucc": "You logged in Successfully!",
+    "loginFailed": "Your Password or username is incorrect, please try again!",
+    "registerSucc": "You registered Successfully!!",
+    "requestSucc": "Email send succesfuly, please check your email!",
+    "resetSucc": "Password reset completed Successfully!"
+  },
+
 
   "validation": {
     "requiredMsgEnName": "Name in english is required!",
