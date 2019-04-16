@@ -3,8 +3,9 @@ import { NbMenuService, NbSidebarService } from '@nebular/theme';
 import { UserData } from '../../../@core/data/users';
 import { AnalyticsService } from '../../../@core/utils';
 import { LayoutService } from '../../../@core/utils';
-import {AuthService} from "../../../auth/services/Auth.service";
+
 import {Router} from "@angular/router";
+import {AuthService} from "../../../@core/services/auth/Auth.service";
 
 @Component({
   selector: 'ngx-header',
@@ -48,10 +49,9 @@ export class HeaderComponent implements OnInit {
   onItemSelection( title ) {
     if ( title === 'Log out' ) {
       this.authServise.logout();
-      console.log('Log out Clicked ')
     } else if ( title === 'Profile' ) {
-      this.router.navigateByUrl('/pages/user/profile');
-      console.log('Profile Clicked ')
+      this.router.navigateByUrl('/pages/user/userProfile');
+
     }
   }
 

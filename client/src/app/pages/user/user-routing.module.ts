@@ -1,7 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import {ProfileComponent} from "./profile/profileForm.component";
 import {UserComponent} from "./user.component";
-import {AuthGuardService} from "../../auth/services/auth-guard.service";
 
 
 
@@ -11,8 +10,7 @@ const routes: Routes = [
     component: UserComponent,
     children: [{
       path: 'userProfile',
-      component: ProfileComponent,
-      canActivate:[AuthGuardService]
+      component: ProfileComponent
     },
     ]
   },

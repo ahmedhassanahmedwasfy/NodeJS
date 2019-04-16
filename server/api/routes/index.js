@@ -8,10 +8,10 @@ var profileApi = require('./profile');
 var securityApi = require('./security');
 
 
-router.use('/cart',cartApi)
+router.use('/cart',interceptor.verifyToken,cartApi)
 router.use('/product',interceptor.verifyToken,productApi)
 router.use('/security',securityApi)
-router.use('/user',profileApi)
+router.use('/user',interceptor.verifyToken,profileApi)
 
 
 module.exports=router;

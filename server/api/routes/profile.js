@@ -4,9 +4,7 @@ var ctrlProfile = require('../controllers/profile');
 const securityUtility = require('../utilities/Security')
 
 
-// router.get('/userProfile', securityUtility.verifyToken('sss'), function (req, res) {
-//     ctrlProfile.userProfile(req, res)
-// });
+router.get('/userProfile', ctrlProfile.userProfile);
 
 
 module.exports = router;

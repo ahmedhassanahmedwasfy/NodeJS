@@ -20,3 +20,33 @@ module.exports.generatetoken = function (user) {
 module.exports.verifyToken = function (token) {
     return jwt.verify(token, "MY_SECRET");
 }
+//
+// module.exports.verifyJWTToken = function (req, res, next) {
+//     var token;
+//     if(req){
+//         if (req.headers && req.headers.authorization)
+//             token = req.headers.authorization.split(' ')[1]
+//
+//         if (!token)
+//             return res.status(403).send({ auth: false, message: 'No token provided.' });
+//         else {
+//             jwt.verify(token, "MY_SECRET",
+//                 (err, decoded) => {
+//                     if (err)
+//                         return res.status(500).send({ auth: false, message: 'Token authentication failed.' });
+//                     else {
+//                         req._id = decoded._id;
+//                         console.log(req._id);
+//                         next();
+//                     }
+//                 }
+//             )
+//         }
+//
+//     }
+//
+//     else {
+//         console.log("sdfghgfdsa")
+//     }
+//
+// }

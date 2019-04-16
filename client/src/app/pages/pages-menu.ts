@@ -115,7 +115,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/security/users',
       }
     ],
-  },{
+  },/*{
     title: 'user',
     icon: 'nb-compose',
     children: [
@@ -124,7 +124,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/user/userProfile',
       }
     ],
-  },
+  },*/
 
  /* {
     title: 'shopping',

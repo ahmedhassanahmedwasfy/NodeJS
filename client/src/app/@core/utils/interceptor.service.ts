@@ -9,12 +9,19 @@ import {NotificationService} from "../services/notification.service";
 export class JWTTokenInterceptor implements HttpInterceptor {
   constructor(private notificationService: NotificationService){}
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  //  debugger;
+
     let modified=req.clone();
     if(localStorage.getItem("token")){
      modified = req.clone({setHeaders: {'Authorization': 'Bearer '+localStorage.getItem("token")}});
     }
-    return next.handle(modified).do(event => { }, (err: HttpErrorResponse) => {
-       this.notificationService.showToasterError();
+    return next.handle(modified).do(event => {
+    //  debugger;
+
+    }, (err: HttpErrorResponse) => {
+   //   debugger;
+
+      this.notificationService.showToasterError();
       if (err.error instanceof Error) {
         // A client-side or network error occurred. Handle it accordingly.
        } else if (err.status == 401) {

@@ -58,6 +58,8 @@ import {CarService} from "../pages/PrimeNGDemo/services/car.service";
 import {HttpModule} from "@angular/http";
 import {NbToastrService} from "@nebular/theme";
 import {NbAuthModule} from "@nebular/auth";
+import {AuthGuardService} from "./utils/auth-guard.service";
+import {AuthService} from "./services/auth/Auth.service";
 // import {interceptor} from "./utils/interceptor.service";
 
 const socialLinks = [
@@ -185,7 +187,7 @@ export class CoreModule {
     return <ModuleWithProviders>{
       ngModule: CoreModule,
       providers: [
-        CarService,NbToastrService,
+        CarService,NbToastrService,AuthGuardService,AuthService,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: JWTTokenInterceptor,

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ProfileService} from "../services/profile.service";
+
 import {ActivatedRoute} from "@angular/router";
-import {AuthService} from "../../../auth/services/Auth.service";
+import {ProfileService} from "../services/profile.service";
+// import {ProfileService} from "../../../@core/services/Profile/profile.service";
 
 @Component({
   selector: 'ngx-profileForm',
@@ -16,15 +17,17 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  async ngOnInit() {
-    await this.profileService.getUserProfile().subscribe(
+  ngOnInit() {
+    this.profileService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
-      },
-      err => {
-        console.log(err);
-
       }
+      // ,
+      // err => {
+      //   console.log(err);
+      //
+      // }
+
     );
   }
 }

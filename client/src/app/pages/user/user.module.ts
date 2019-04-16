@@ -6,11 +6,24 @@ import {UserComponent} from "./user.component";
 import {ProfileService} from "./services/profile.service";
 import {UserRoutes} from "./user-routing.module";
 import {ThemeModule} from "../../@theme/theme.module";
-import {RouterModule} from "@angular/router";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {JWTTokenInterceptor} from "../../@core/utils/interceptor.service";
+
 
 @NgModule({
   declarations: [UserComponent,ProfileComponent],
-  imports: [CommonModule, UserRoutes, ThemeModule, RouterModule],
-  providers:[ProfileService],
+  imports: [CommonModule, UserRoutes, ThemeModule],
+  // providers:[
+  //
+  //
+  // ],
+  providers:[ProfileService
+    ,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JWTTokenInterceptor,
+      multi: true
+    } ,
+  ],
 })
 export class UserModule { }

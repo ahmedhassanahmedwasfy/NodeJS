@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, TokenPayload } from '../services/Auth.service';
 import { Router } from '@angular/router';
 import {NbAuthSocialLink} from "../auth.options";
 import {NotificationService} from "../../@core/services/notification.service";
+import {AuthService, TokenPayload} from "../../@core/services/auth/Auth.service";
 
 @Component({
   selector: 'ngx-registerForm',

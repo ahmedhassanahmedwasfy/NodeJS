@@ -4,6 +4,9 @@ module.exports.verifyToken = function (req, res, next) {
         if(req.headers.authorization.split(' ')[1]){
            let result= securityUtility.verifyToken(req.headers.authorization.split(' ')[1]);
            if(result){
+
+               req.user=result;
+
                next();
            }
            else{
