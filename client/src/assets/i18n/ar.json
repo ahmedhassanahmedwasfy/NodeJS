@@ -75,6 +75,11 @@
     "Cancel": "رجوع"
   },
 
+  "Profile": {
+    "Header": "ملفك الشخصي",
+    "Button": "تعديل الملف الشخصي"
+  },
+
   "groupsToasters": {
     "successHeader": "رساله نجاح!",
     "updateSucc": "تم تحديث المجموعات بنجاح!",
@@ -85,6 +90,11 @@
     "successHeader": "رساله نجاح!",
     "updateSucc": "تم تحديث السماحيات بنجاح!",
     "deleteSucc": "تم مسح السماحيه بنجاح!"
+  },
+
+  "profileToasters": {
+    "successHeader": "رساله نجاح!",
+    "updateSucc": "تم تحديث الملف الشخصي بنجاح!"
   },
 
   "usersToasters": {

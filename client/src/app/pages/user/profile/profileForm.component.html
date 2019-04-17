@@ -2,31 +2,74 @@
   <div class="row">
      <div class="col-md-12">
        <nb-card>
-         <nb-card-header>Your profil</nb-card-header>
-         <nb-card-body>
+         <nb-card-header>
            <div class="row">
-              <div class="col-md-6 form-group">
-                 <label >Full name in English</label>
-                 <input type="text" class="form-control" name="name_EN" [(ngModel)]="userDetails.name_EN"
+             <div class="col-md-10">
+               {{'Profile.Header' | translate}}
+             </div>
+             <div class="col-md-2">
+               <button class="btn btn-success" (click)="editClick()">{{'Profile.Button' | translate}}</button>
+             </div>
+             </div>
+         </nb-card-header>
+         <nb-card-body>
+           <form id="form" #form="ngForm" (submit)="form.valid && saveEditProfile()">
+             <div class="row ">
+               <div class="col-md-6 form-group">
+                 <label for="name_EN">{{'editUsers.NameEN' | translate}}</label>
+                 <input type="text" class="form-control" name="name_EN" [(ngModel)]="userDetails.name_EN" [readonly]="editable"
                        #nameEN="ngModel" required pattern="[a-z A-Z0-9\\_\\]+$">
+                 <ng-container *ngIf="nameEN.invalid && (nameEN.dirty || nameEN.touched)">
+                   <p class="text-danger" *ngIf="nameEN.errors?.required">
+                     {{'validation.requiredMsgEnName' | translate }}
+                   </p>
+                   <p class="text-danger" *ngIf="nameEN.errors?.pattern">
+                     {{'validation.patternMsgEnName' | translate }}
+                   </p>
+                 </ng-container>
+             </div>
+
+          <div class="col-md-6 form-group">
+          <label for="name_AR">{{'editUsers.NameAR' | translate}}</label>
+            <input type="text" class="form-control" name="name_AR" [(ngModel)]="userDetails.name_AR" [readonly]="editable"
+                   #nameAR="ngModel" required pattern="^[\u0621-\u064A\u0660-\u0669\\_\\ ]+$">
+            <ng-container *ngIf="nameAR.invalid && (nameAR.dirty || nameAR.touched)">
+              <p class="text-danger" *ngIf="nameAR.errors?.required">
+                {{'validation.requiredMsgArName' | translate }}
+              </p>
+              <p class="text-danger" *ngIf="nameAR.errors?.pattern">
+                {{'validation.patternMsgArName' | translate }}
+              </p>
+            </ng-container>
         </div>
-           </div>
+        </div>
         <div class="row">
           <div class="col-md-6 form-group">
-          <label>Full name in Arabic</label>
-            <input type="text" class="form-control" name="name_EN" [(ngModel)]="userDetails.name_AR"
-                   #nameEN="ngModel" required pattern="[a-z A-Z0-9\\_\\]+$">
-        </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 form-group">
-          <label>Email</label>
-            <input type="text" class="form-control" name="name_EN" [(ngModel)]="userDetails.email"  readonly
-                   #nameEN="ngModel" required pattern="[a-z A-Z0-9\\_\\]+$">
+          <label for="email">{{'editUsers.Email' | translate}}</label>
+            <input type="text" class="form-control" name="email" [(ngModel)]="userDetails.email"  readonly
+                   #email="ngModel" >
+            <ng-container >
+              <p class="text-danger" *ngIf="email.touched">
+                You can not edit your email
+              </p>
+            </ng-container>
         </div>
       </div>
+
+           <div class="form-group row" *ngIf="showButton">
+             <div class='col-sm-4'>
+               <button style="margin:5px;" class="btn btn-success" type="submit" [disabled]="form.invalid">
+                 {{'editUsers.Submit' | translate }}
+               </button>
+               <button style="margin:5px;" class="btn btn-success" (click)="clickCancel()">{{'editUsers.Cancel' | translate}}</button>
+             </div>
+           </div>
+           </form>
          </nb-card-body>
        </nb-card>
     </div>
   </div>
 </div>
+
+
+

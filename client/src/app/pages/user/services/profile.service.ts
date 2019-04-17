@@ -30,4 +30,8 @@ export class ProfileService {
     return this.http.get(this.url + '/userProfile' );
     // return this.http.get(this.url + '/userProfile', { headers: { Authorization: `Bearer ${this.getToken()}` }} );
   }
+
+  editUserProfile(user) {
+    return this.http.post(this.url + '/userProfile', user );
+  }
 }

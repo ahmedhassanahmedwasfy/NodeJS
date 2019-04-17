@@ -73,6 +73,11 @@
     "Cancel": "Cancel"
   },
 
+  "Profile": {
+    "Header": "Your profile",
+    "Button": "Edit Profile"
+  },
+
   "groupsToasters": {
     "successHeader": "Success Message!",
     "updateSucc": "Groups Updated Sucessfully!",
@@ -83,6 +88,11 @@
     "successHeader": "Success Message!",
     "updateSucc": "permissions Updated Sucessfully!",
     "deleteSucc": "permission Deleted Sucessfully!"
+  },
+
+  "profileToasters": {
+    "successHeader": "Success Message!",
+    "updateSucc": "Profile Updated Sucessfully!"
   },
 
   "usersToasters": {
@@ -156,7 +166,5 @@
     "patternMsgArGr": "Group name must be in arabic!"
 
   }
-
-
 }
 

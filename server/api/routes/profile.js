@@ -4,7 +4,13 @@ var ctrlProfile = require('../controllers/profile');
 const securityUtility = require('../utilities/Security')
 
 
-router.get('/userProfile', ctrlProfile.userProfile);
+router.get('/userProfile', function(req,res){
+    ctrlProfile.userProfile(req,res)
+});
+
+router.post('/userProfile', function(req,res){
+    ctrlProfile.editProfile(req,res)
+});
 
 
 module.exports = router;
