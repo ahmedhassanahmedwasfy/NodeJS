@@ -9,6 +9,10 @@
 		"SELECT": "غير اللغة",
 		"TITLE": "مرحبا الزاوي مع ترجمة ngx!"
 	},
+  "HeaderComp": {
+    "projectName": "دكتوري",
+    "Themes": "المواضيع"
+  },
 
   "Menu": {
     "security": "غير اللغة",
@@ -77,7 +81,9 @@
 
   "Profile": {
     "Header": "ملفك الشخصي",
-    "Button": "تعديل الملف الشخصي"
+    "Button": "تعديل الملف الشخصي",
+    "Upload": "تحميل",
+    "UploadImage": "تحميل الصوره"
   },
 
   "groupsToasters": {
@@ -94,7 +100,8 @@
 
   "profileToasters": {
     "successHeader": "رساله نجاح!",
-    "updateSucc": "تم تحديث الملف الشخصي بنجاح!"
+    "updateSucc": "تم تحديث الملف الشخصي بنجاح!",
+    "uploadImage": "تم رفع الصوره بنجاح!"
   },
 
   "usersToasters": {

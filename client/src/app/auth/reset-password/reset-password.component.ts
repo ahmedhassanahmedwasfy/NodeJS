@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {NotificationService} from "../../@core/services/notification.service";
-import {AuthService} from "../../@core/services/auth/Auth.service";
+import {ActivatedRoute, Router} from '@angular/router';
+import {NotificationService} from '../../@core/services/notification.service';
+import {AuthService} from '../../@core/services/auth/Auth.service';
 
 @Component({
   selector: 'ngx-reset-password',
   templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.scss']
+  styleUrls: ['./reset-password.component.scss'],
 })
 export class NbResetPasswordComponent implements OnInit {
  user: any = {};
@@ -28,15 +28,14 @@ export class NbResetPasswordComponent implements OnInit {
   }
 
   async resetPassword(){
-    let token = this.route.snapshot.paramMap.get('token');
-    await this.auth.saveNewPassword(token, this.user).subscribe(()=>{
-        this.notificationService.showToasterSuccess('AuthToasters.resetSucc','AuthToasters.successHeader');
+    const token = this.route.snapshot.paramMap.get('token');
+    await this.auth.saveNewPassword(token, this.user).subscribe(() => {
+        this.notificationService.showToasterSuccess('AuthToasters.resetSucc', 'AuthToasters.successHeader');
         this.router.navigateByUrl('/auth/login');
       },
-      (err)=>{
-      console.log(err)
-      }
-    )
+      (err) => {
+      console.log(err);
+      });
   }
 
 }

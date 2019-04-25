@@ -10,6 +10,11 @@
 		"TITLE": "Hello Angular with ngx-translate!"
 	},
 
+  "HeaderComp": {
+    "projectName": "My-Doctor",
+    "Themes": "Themes"
+  },
+
   "General": {
 
   },
@@ -75,7 +80,9 @@
 
   "Profile": {
     "Header": "Your profile",
-    "Button": "Edit Profile"
+    "Button": "Edit Profile",
+    "Upload": "Upload",
+    "UploadImage": "Upload Image"
   },
 
   "groupsToasters": {
@@ -92,7 +99,8 @@
 
   "profileToasters": {
     "successHeader": "Success Message!",
-    "updateSucc": "Profile Updated Sucessfully!"
+    "updateSucc": "Profile Updated Sucessfully!",
+    "uploadImage": "Image Uploaded Sucessfully!"
   },
 
   "usersToasters": {

@@ -3,7 +3,7 @@
      [class.right]="position === 'inverse'">
   <div class="logo-containter">
     <a (click)="toggleSidebar()" href="#" class="navigation"><i class="nb-menu"></i></a>
-    <div class="logo" (click)="goToHome()">my-<span>Doctor</span></div>
+    <div class="logo" (click)="goToHome()"><span>{{'HeaderComp.projectName' | translate }}</span></div>
   </div>
   <ngx-theme-switcher></ngx-theme-switcher>
 </div>
@@ -15,7 +15,7 @@
     [class.right]="position === 'normal'"
     [class.left]="position === 'inverse'">
     <nb-action *nbIsGranted="['view', 'user']" >
-      <nb-user [nbContextMenu]="userMenu" [name]="user?.name_EN" [picture]="user?.picture"></nb-user>
+      <nb-user [nbContextMenu]="userMenu" [name]= "checkdir()==true ? user?.name_EN : user?.name_AR" [picture]="user?.image"></nb-user>
     </nb-action>
     <nb-action class="control-item" disabled icon="nb-notifications"></nb-action>
     <nb-action class="control-item" icon="nb-email"></nb-action>

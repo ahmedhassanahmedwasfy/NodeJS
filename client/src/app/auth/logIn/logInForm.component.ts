@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {NbAuthSocialLink} from "../auth.options";
-import {NotificationService} from "../../@core/services/notification.service";
-import {AuthService, TokenPayload} from "../../@core/services/auth/Auth.service";
-
+import {NbAuthSocialLink} from '../auth.options';
+import {NotificationService} from '../../@core/services/notification.service';
+import {AuthService, TokenPayload} from '../../@core/services/auth/Auth.service';
 
 @Component({
   selector: 'ngx-logInForm',
   templateUrl: './logInForm.component.html',
-  styleUrls: ['./logInForm.component.scss']
+  styleUrls: ['./logInForm.component.scss'],
 })
 export class NbLoginComponent implements OnInit {
   [x: string]: any;
@@ -26,11 +25,10 @@ export class NbLoginComponent implements OnInit {
   }
   login() {
     this.auth.login(this.credentials).subscribe(() => {
-      this.notificationService.showToasterSuccess('AuthToasters.loginSucc','AuthToasters.successHeader');
+      this.notificationService.showToasterSuccess('AuthToasters.loginSucc', 'AuthToasters.successHeader');
       this.router.navigateByUrl('/auth/profile');
     }, (err) => {
       console.error(err);
-
-    }); 
+    });
   }
 }

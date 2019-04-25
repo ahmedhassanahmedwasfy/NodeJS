@@ -21,7 +21,8 @@ var userSchema = new mongoose.Schema({
   permissions: [],
   groups: [],
   resetPasswordToken: String,
-  resetPasswordExpires: Date
+  resetPasswordExpires: Date,
+  image_Id: String
 });
 
 module.exports= mongoose.model('users', userSchema);

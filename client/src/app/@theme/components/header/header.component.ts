@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NbMenuService, NbSidebarService } from '@nebular/theme';
+import {NbLayoutDirectionService, NbMenuService, NbSidebarService} from '@nebular/theme';
 import { UserData } from '../../../@core/data/users';
 import { AnalyticsService } from '../../../@core/utils';
 import { LayoutService } from '../../../@core/utils';
 
 import {Router} from "@angular/router";
 import {AuthService} from "../../../@core/services/auth/Auth.service";
+import {ProfileService} from "../../../@core/services/profile.service";
 
 @Component({
   selector: 'ngx-header',
@@ -16,6 +17,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() position = 'normal';
   user: any;
+  image: any;
   userMenu = [{ title: 'Profile'}, { title: 'Log out' }];
 
   constructor(private sidebarService: NbSidebarService,
@@ -24,22 +26,42 @@ export class HeaderComponent implements OnInit {
               private analyticsService: AnalyticsService,
               private layoutService: LayoutService,
               private authServise: AuthService,
-              private router: Router) {
-  }
+              private router: Router,
+              private profileService: ProfileService,
+              private directionService: NbLayoutDirectionService){}
 
   async ngOnInit() {
-    this.user = await this.authServise.getUserDetails();
-    /*this.userService.getUsers()
-      .subscribe((users: any) => this.user = users.nick);*/
+    await this.profileService.getUserProfile().subscribe(
+      res => {
+        this.user = res['user'];
+      },
+      err => {
+        console.log(err);
+      });
+
+    this.profileService.getUserProfileImage().subscribe(
+      res => {
+        this.image = res['image'];
+      },
+      err => {
+        console.log(err);
+      });
+
     this.menuService.onItemClick().subscribe(( event ) => {
       this.onItemSelection(event.item.title);
-    })
+    });
   }
 
   toggleSidebar(): boolean {
     this.sidebarService.toggle(true, 'menu-sidebar');
     this.layoutService.changeLayoutSize();
     return false;
+  }
+
+  checkdir() {
+    let checkdir = this.directionService.isLtr();
+    return checkdir;
+
   }
 
   goToHome() {
@@ -58,4 +80,16 @@ export class HeaderComponent implements OnInit {
   startSearch() {
     this.analyticsService.trackEvent('startSearch');
   }
+
+
+ /* async getProfileImage(){
+    await this.profileService.getUserProfileImage().subscribe(
+      res => {
+        this.userImage = res['file'];
+      },
+      err => {
+        console.log(err);
+      });
+
+  }*/
 }

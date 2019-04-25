@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import {  NbDummyAuthStrategy } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
-
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import {
   AnalyticsService,
@@ -51,16 +50,18 @@ import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
-//import {ErrorDialogService} from "./utils/error-dialog-service.service";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {JWTTokenInterceptor} from "./utils/interceptor.service";
-import {CarService} from "../pages/PrimeNGDemo/services/car.service";
-import {HttpModule} from "@angular/http";
-import {NbToastrService} from "@nebular/theme";
-import {NbAuthModule} from "@nebular/auth";
-import {AuthGuardService} from "./utils/auth-guard.service";
-import {AuthService} from "./services/auth/Auth.service";
-// import {interceptor} from "./utils/interceptor.service";
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {JWTTokenInterceptor} from './utils/interceptor.service';
+import {CarService} from '../pages/PrimeNGDemo/services/car.service';
+import {HttpModule} from '@angular/http';
+import {NbToastrService} from '@nebular/theme';
+import {NbAuthModule} from '@nebular/auth';
+import {AuthGuardService} from './utils/auth-guard.service';
+import {AuthService} from './services/auth/Auth.service';
+import {ProfileService} from './services/profile.service';
+import {ConfigService} from './services/config.service';
+//import {ErrorDialogService} from './utils/error-dialog-service.service';
+// import {interceptor} from './utils/interceptor.service';
 
 const socialLinks = [
   {
@@ -187,11 +188,11 @@ export class CoreModule {
     return <ModuleWithProviders>{
       ngModule: CoreModule,
       providers: [
-        CarService,NbToastrService,AuthGuardService,AuthService,
+        CarService, NbToastrService, AuthGuardService, AuthService, ProfileService, ConfigService,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: JWTTokenInterceptor,
-          multi: true
+          multi: true,
         } ,
 
         ...NB_CORE_PROVIDERS,

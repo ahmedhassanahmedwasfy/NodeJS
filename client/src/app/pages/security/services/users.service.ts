@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
-import { User } from "../seeds/user";
-
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import { User } from '../seeds/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
   url = 'http://localhost:4000/api/security/users';
@@ -21,11 +20,11 @@ export class UsersService {
   }
 
   deleteUser(userId) {
-    return this.http.delete(this.url +'/delete/'+ userId);
+    return this.http.delete(this.url + '/delete/' + userId);
   }
 
   editUser(user): Observable<User> {
-    return this.http.post<User>(this.url +'/update', user);
+    return this.http.post<User>(this.url + '/update', user);
   }
 
 }

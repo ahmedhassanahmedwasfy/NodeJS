@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'ngx-security',
   templateUrl: './security.component.html',
@@ -8,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecurityComponent implements OnInit {
 
-  constructor() {
-
-  }
+  constructor() {}
 
 
   ngOnInit() {

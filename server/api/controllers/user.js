@@ -44,11 +44,8 @@ module.exports.new = async function (req, res) {
             salt: salt,
             hash: crypto.pbkdf2Sync(req.body.password, salt, 1000, 64, 'sha512').toString('hex')
 }];
-    //start session
-    // begin transation
-    //pass session obj to create function
+
     let dbobject = await userRepo.create(objs);
-// save
     if (dbobject.err) {
         sendJSONresponse(res, 500, {'error': dbobject.err});
     }
@@ -73,8 +70,8 @@ module.exports.update = async function (req, res) {
         o.salt=salt;
         o.hash=hash;
     }
-    let {error, result} = await userRepo.CreateOrUpdate(o)
-    if (error) {
+    let dbObject = await userRepo.CreateOrUpdate(o)
+    if (dbObject.error) {
         res.status(500).send("unable to update the database");
     } else {
         res.json('Update complete');
@@ -89,9 +86,5 @@ module.exports.view = async function (req, res) {
     });
 };
 
-// userSchema.methods.setPassword = function(password){
-//   this.salt = crypto.randomBytes(16).toString('hex');
-//   this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
-// };
 
 

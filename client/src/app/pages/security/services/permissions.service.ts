@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import { Permission } from "../seeds/permission";
-
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import { Permission } from '../seeds/permission';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PermissionsService {
 
@@ -14,7 +13,7 @@ export class PermissionsService {
   constructor(private http: HttpClient) {}
 
   getPermissions(): Observable<any> {
-    return this.http.get(this.url)
+    return this.http.get(this.url);
   }
 
   getPermissionById(permissionId): Observable<Permission> {
@@ -22,18 +21,10 @@ export class PermissionsService {
   }
 
   deletePermission(permissionId) {
-    return this.http.delete(this.url +'/delete/'+ permissionId);
+    return this.http.delete(this.url + '/delete/' + permissionId);
   }
-
 
   editPermission(permission: Permission): Observable<Permission> {
-    return this.http.post<Permission>(this.url +'/update/', permission);
+    return this.http.post<Permission>(this.url + '/update/', permission);
   }
-
-
-
-
-
-
-
 }

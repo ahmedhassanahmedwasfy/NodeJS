@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import {NbLayoutDirectionService} from "@nebular/theme";
-import {forkJoin} from "rxjs";
-import {ToastrService} from "ngx-toastr";
+import {NbLayoutDirectionService} from '@nebular/theme';
+import {forkJoin} from 'rxjs';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NotificationService {
 
-  constructor(private translateService: TranslateService, private directionService: NbLayoutDirectionService, private toastr: ToastrService,) {
+  constructor(private translateService: TranslateService, private directionService: NbLayoutDirectionService, private toastr: ToastrService) {
 
   }
 
@@ -26,8 +26,7 @@ export class NotificationService {
     }
     if (title) {
       _title = await this.translateService.get(title).toPromise();
-    }
-    else{
+    }else {
       _title = await this.translateService.get('generalToasters.title').toPromise();
     }
     this.toastr.success(_msg, _title)
@@ -38,17 +37,15 @@ export class NotificationService {
     let _msg, _title;
     if (msg) {
       _msg = await this.translateService.get(msg).toPromise();
-    }
-    else{
+    }else {
       _msg = await this.translateService.get('generalToasters.error').toPromise();
 
     }
     if (title) {
       _title = await this.translateService.get(title).toPromise();
-    }
-    else{
+    }else {
       _title = await this.translateService.get('generalToasters.title').toPromise();
     }
-    this.toastr.error(_msg, _title)
+    this.toastr.error(_msg, _title);
   }
 }

@@ -4,11 +4,11 @@ import { SecurityComponent } from './security.component';
 import { PermissionsComponent } from './permissions/permissions.component';
 import { GroupsComponent } from './groups/groups.component';
 import { UsersComponent } from './users/users.component';
-import { GroupsService } from "./services/groups.service";
-import { UserService } from "../../@core/mock/users.service";
-import { PermissionsService } from "./services/permissions.service";
-import { SecurityRoutes } from "./security.routing";
-import { ThemeModule } from "../../@theme/theme.module";
+import { GroupsService } from './services/groups.service';
+import { UserService } from '../../@core/mock/users.service';
+import { PermissionsService } from './services/permissions.service';
+import { SecurityRoutes } from './security.routing';
+import { ThemeModule } from '../../@theme/theme.module';
 import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import { PickListModule } from 'primeng/picklist';
@@ -21,6 +21,6 @@ import { EditUserComponent } from './edit-user/edit-user.component';
   declarations: [SecurityComponent, PermissionsComponent, GroupsComponent, UsersComponent, EditPermissionComponent, EditGroupComponent,
     EditUserComponent],
   imports: [CommonModule, SecurityRoutes, ThemeModule, TableModule, PaginatorModule, PickListModule, DataViewModule],
-  providers: [PermissionsService, GroupsService, UserService]
+  providers: [PermissionsService, GroupsService, UserService],
 })
 export class SecurityModule { }

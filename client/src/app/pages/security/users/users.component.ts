@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {UsersService} from "../services/users.service";
-import {Permission} from "../seeds/permission";
-import {NbLayoutDirectionService} from "@nebular/theme";
-import {ToastrService} from "ngx-toastr";
-import {NotificationService} from "../../../@core/services/notification.service";
+import {ActivatedRoute, Router} from '@angular/router';
+import {UsersService} from '../services/users.service';
+import {Permission} from '../seeds/permission';
+import {NbLayoutDirectionService} from '@nebular/theme';
+import {ToastrService} from 'ngx-toastr';
+import {NotificationService} from '../../../@core/services/notification.service';
 
 @Component({
   selector: 'ngx-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
   users: any[];
@@ -22,7 +22,7 @@ export class UsersComponent implements OnInit {
     this.usersService.getUsers()
       .subscribe(res => {
         this.users = res.data;
-      })
+      });
   }
 
   addUser() {
@@ -32,8 +32,8 @@ export class UsersComponent implements OnInit {
     };
   }
 
-  checkdir(){
-    let checkdir = this.directionService.isLtr();
+  checkdir() {
+    const checkdir = this.directionService.isLtr();
     return checkdir;
   }
 
@@ -43,7 +43,7 @@ export class UsersComponent implements OnInit {
 
   deleteUser(userId) {
     this.usersService.deleteUser(userId).subscribe(() => {
-      this.notificationService.showToasterSuccess('usersToasters.deleteSucc','usersToasters.successHeader');
+      this.notificationService.showToasterSuccess('usersToasters.deleteSucc', 'usersToasters.successHeader');
       this.ngOnInit();
     });
   }

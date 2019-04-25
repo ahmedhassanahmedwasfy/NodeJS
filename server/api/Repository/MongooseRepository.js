@@ -62,6 +62,17 @@ class MongooseRepository {
         return {err,data};
     }
 
+    async findOneAndUpdate(query,model){
+        let data,err;
+        try {
+            data=   await this.collection.findOneAndUpdate(query,model).lean().exec();
+
+        }catch (e) {
+            err=e;
+        }
+        return {err,data};
+    }
+
     async create(objs){
         let data,err;
         try {
@@ -81,8 +92,6 @@ class MongooseRepository {
        return  this.create(model);
      }
     }
-
-
 }
 
 module.exports=MongooseRepository;

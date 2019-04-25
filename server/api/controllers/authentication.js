@@ -7,6 +7,8 @@ var MongooseRepository = require('../Repository/MongooseRepository');
 var UserRepo = new MongooseRepository('users');
 var nodemailer = require('nodemailer');
 var async = require('async');
+const config = require('../config/config');
+
 
 
 var sendJSONresponse = function (res, status, content) {
@@ -83,14 +85,14 @@ module.exports.forgetPassword = function (req, res) {
             var smtpTrans = nodemailer.createTransport({
                 service: 'Gmail',
                 auth: {
-                    user: 'mydoctor.wasfy@gmail.com',
-                    pass: '010203010203'
+                    user: config.development.email.auth.email,
+                    pass: config.development.email.auth.pass
                 }
             });
             var mailOptions = {
 
                 to: user.email,
-                from: 'mydoctor.wasfy@gmail.com',
+                from: config.development.email.auth.email,
                 subject: 'Node.js Password Reset',
                 text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                     'Please click on the following link, or paste this into your browser to complete the process:\n\n' +

@@ -6,10 +6,16 @@ var mongoose = require('mongoose');
 var cors = require('cors');
 var passport = require('passport');
 var routesApi = require('./api/routes/index');
-
-var port = process.env.port || 4000;
-
 require('./api/models/db');
+const config = require('./api/config/config');
+//const defaultConfig = config.development;
+const environment = process.env.NODE_ENV || 'development';
+const environmentConfig = config[environment];
+//const finalConfig = _.merge(defaultConfig, environmentConfig);
+//global.gConfig = finalConfig;
+var port = process.env.port || config.development.app.node_port;
+
+
 
 var app = express();
 app.use(bodyParser.json());
