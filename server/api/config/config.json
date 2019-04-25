@@ -1,0 +1,36 @@
+{
+  "development": {
+    "app": {
+      "config_id": "development",
+      "app_name": "myDoctor",
+      "app_desc": "my app desc",
+      "node_port": 4000,
+      "json_indentation": 4
+    },
+    "mongodb": {
+      "config_id": "db",
+      "host": "localhost",
+      "port": 27017,
+      "name": "MyDoctor",
+      "dburl": "mongodb+srv://sa:010203010203@cluster0-9tqii.gcp.mongodb.net/MyDoctor?retryWrites=true"
+    },
+    "nodejs": {
+      "config_id": "nodejs",
+      "domain": "localhost",
+      "port": 4000
+    },
+    "email": {
+      "config_id": "email",
+      "host": "smtp",
+      "auth": {
+        "user": "mydoctor.wasfy@gmail.com",
+        "pass": "010203010203"
+      }
+    },
+    "googleDrive": {
+      "config_id": "googleDrive",
+      "UserProfileImagefolderId": "1hKIRDWn4yz25QV7UehAUzeqytVpY0aYv"
+    }
+  }
+}
+
