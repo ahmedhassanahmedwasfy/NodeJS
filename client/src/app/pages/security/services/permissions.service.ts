@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { Permission } from '../seeds/permission';
+import {AppConfig} from "../../../@core/services/app-config.service";
 
 @Injectable({
   providedIn: 'root',
 })
 export class PermissionsService {
 
-  url = 'http://localhost:4000/api/security/permissions';
+  protected apiServer : any = AppConfig.settings.apiServer;
+  url = `${this.apiServer.API_BASE_URL}/security/permissions`;
 
   constructor(private http: HttpClient) {}
 

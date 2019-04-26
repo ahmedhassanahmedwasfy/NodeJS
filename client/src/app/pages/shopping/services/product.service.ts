@@ -31,11 +31,11 @@ constructor(private http: Http) { }
 
 
 getProduct(){
-  return this.http.get('http://localhost:4000/api/products');
+  return this.http.get('${this.apiServer.API_BASE_URL}/products');
 }
 
 addProduct(product){
-  return this.http.post('http://localhost:4000/api/products', product);
+  return this.http.post('${this.apiServer.API_BASE_URL}/products', product);
 }
 
 

@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {AppConfig} from './app-config.service';
 
 interface TokenResponse {
   token: string;
@@ -14,7 +15,9 @@ interface TokenResponse {
 export class ProfileService {
 
   private token: string;
-  url = 'http://localhost:4000/api/user';
+  protected apiServer : any = AppConfig.settings.apiServer;
+
+  url = `${this.apiServer.API_BASE_URL}/user`;
 
   constructor(private http: HttpClient, private router: Router) {
   }

@@ -59,7 +59,6 @@ import {NbAuthModule} from '@nebular/auth';
 import {AuthGuardService} from './utils/auth-guard.service';
 import {AuthService} from './services/auth/Auth.service';
 import {ProfileService} from './services/profile.service';
-import {ConfigService} from './services/config.service';
 //import {ErrorDialogService} from './utils/error-dialog-service.service';
 // import {interceptor} from './utils/interceptor.service';
 
@@ -188,7 +187,7 @@ export class CoreModule {
     return <ModuleWithProviders>{
       ngModule: CoreModule,
       providers: [
-        CarService, NbToastrService, AuthGuardService, AuthService, ProfileService, ConfigService,
+        CarService, NbToastrService, AuthGuardService, AuthService, ProfileService,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: JWTTokenInterceptor,

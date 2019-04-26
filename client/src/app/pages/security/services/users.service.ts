@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import { User } from '../seeds/user';
+import {AppConfig} from "../../../@core/services/app-config.service";
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  url = 'http://localhost:4000/api/security/users';
+
+  protected apiServer : any = AppConfig.settings.apiServer;
+  url = `${this.apiServer.API_BASE_URL}/security/users`;
 
   constructor(private http: HttpClient) { }
 

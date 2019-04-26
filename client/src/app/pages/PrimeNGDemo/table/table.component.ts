@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from "rxjs";
+import {AppConfig} from "../../../@core/services/app-config.service";
 
 @Component({
   selector: 'ngx-table',
@@ -12,6 +13,9 @@ export class TableComponent implements OnInit {
   constructor(private http: HttpClient) {}
   response: Observable<any>;
 
+  protected apiServer : any = AppConfig.settings.apiServer;
+  url2 = `${this.apiServer.API_BASE_URL}/product/products`;
+
   ngOnInit() {
   }
   checkAPI() {
@@ -20,8 +24,8 @@ export class TableComponent implements OnInit {
     this.http.get(url).subscribe(e=>{
       console.log(e)
     });
-   let url2= 'http://localhost:4000/api/product/products';
-    this.http.get(url2).subscribe(e=>{
+
+    this.http.get(this.url2).subscribe(e=>{
       console.log(e)
     });
   }

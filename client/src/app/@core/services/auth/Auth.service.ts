@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {map} from 'rxjs/operators/map';
 import {Router} from '@angular/router';
+import {AppConfig} from "../app-config.service";
 
 export interface UserDetails {
   _id: string;
@@ -33,6 +34,7 @@ export interface NewPasswords {
 @Injectable()
 export class AuthService {
   private token: string;
+  protected apiServer : any = AppConfig.settings.apiServer;
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -74,10 +76,12 @@ export class AuthService {
     let base;
 
     if (method === 'post') {
-      base = this.http.post(`http://localhost:4000/api/security/${type}`, user);
+      base = this.http.post(`${this.apiServer.API_BASE_URL}/security/${type}`, user);
     } else {
-      base = this.http.get(`http://localhost:4000/api/security/${type}`, {headers: {Authorization: `Bearer ${this.getToken()}`}});
+      base = this.http.get(`${this.apiServer.API_BASE_URL}/security/${type}`, {headers: {Authorization: `Bearer ${this.getToken()}`}});
     }
+
+
 
     const request = base.pipe(
       map((data: TokenResponse) => {
@@ -110,12 +114,12 @@ export class AuthService {
   }
 
   public requestPassword(data) {
-    return this.http.post('http://localhost:4000/api/security/forgetPassword', data);
+    return this.http.post('${this.apiServer.API_BASE_URL}/security/forgetPassword', data);
   }
 
 
   public saveNewPassword(token, data) {
-    return this.http.post('http://localhost:4000/api/security/resetPassword/' + token, data);
+    return this.http.post('${this.apiServer.API_BASE_URL}/security/resetPassword/' + token, data);
   }
 
 

@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  name: 'env',
-  appUrl: 'localhost:4200',
+  name: 'dev',
+  // appUrl: 'localhost:4200',
 };

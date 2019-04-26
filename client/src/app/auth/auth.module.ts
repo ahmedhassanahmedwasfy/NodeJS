@@ -20,8 +20,8 @@ import {AuthService} from '../@core/services/auth/Auth.service';
         tokenGetter: function tokenGetter() {
           return localStorage.getItem('access_token');
         },
-        whitelistedDomains: ['localhost:4000'],
-        blacklistedRoutes: ['http://localhost:4000/auth/login'],
+        // whitelistedDomains: ['localhost:4000'],
+        // blacklistedRoutes: ['http://localhost:4000/auth/login'],
       },
     })],
   // NbAuthComponent,

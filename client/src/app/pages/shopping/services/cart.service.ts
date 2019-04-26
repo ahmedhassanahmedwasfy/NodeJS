@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
-import { OVERLAY_KEYBOARD_DISPATCHER_PROVIDER_FACTORY } from '@angular/cdk/overlay/typings/keyboard/overlay-keyboard-dispatcher';
-
+import {AppConfig} from "../../../@core/services/app-config.service";
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +8,10 @@ import { OVERLAY_KEYBOARD_DISPATCHER_PROVIDER_FACTORY } from '@angular/cdk/overl
 export class CartService {
 
 constructor(private http: Http) { }
+  protected apiServer : any = AppConfig.settings.apiServer;
 
 addToCart(){
-  return this.http.get('http://localhost:4000/api/add-to-cart/:id');
+  return this.http.get('${this.apiServer.API_BASE_URL}/add-to-cart/:id');
 }
 
 
