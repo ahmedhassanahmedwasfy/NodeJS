@@ -11,7 +11,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { CartService } from './services/cart.service';
 
 @NgModule({
-  imports: [CommonModule ,/* HttpClientModule*/, HttpModule, ShoppingRoutes, DataViewModule],
+  imports: [CommonModule ,HttpModule, ShoppingRoutes, DataViewModule],
   declarations: [ShoppingComponent, ProductsComponent, CartComponent],
   providers: [ProductService, CartService]
 

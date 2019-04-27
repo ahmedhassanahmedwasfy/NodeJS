@@ -11,23 +11,26 @@ import {NBForgetPasswordComponent} from './forget-password/forget-password.compo
 import {NbResetPasswordComponent} from './reset-password/reset-password.component';
 import {AuthGuardService} from '../@core/utils/auth-guard.service';
 import {AuthService} from '../@core/services/auth/Auth.service';
+import {NbAuthComponent} from "./auth.component";
 
 @NgModule({
   imports: [
     CommonModule, RouterModule, ReactiveFormsModule, BrowserModule, FormsModule, ThemeModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: function tokenGetter() {
-          return localStorage.getItem('access_token');
-        },
+        tokenGetter: tokenGetter,
         // whitelistedDomains: ['localhost:4000'],
         // blacklistedRoutes: ['http://localhost:4000/auth/login'],
       },
     })],
   // NbAuthComponent,
-  declarations: [NbLoginComponent, NbRegisterComponent, NBForgetPasswordComponent, NbResetPasswordComponent],
+  declarations: [NbAuthComponent,
+    NbLoginComponent, NbRegisterComponent, NBForgetPasswordComponent, NbResetPasswordComponent],
   providers: [AuthService, AuthGuardService],
   // exports: [ NbAuthComponent, NbLoginComponent, NbRegisterComponent]
 })
 export class NbAuthModule {
+}
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
 }

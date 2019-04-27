@@ -16,6 +16,7 @@ export interface IAppConfig {
 
   };
   apiServer: {
+    API_BASE_URL: string;
     metadata: string;
     rules: string;
   };

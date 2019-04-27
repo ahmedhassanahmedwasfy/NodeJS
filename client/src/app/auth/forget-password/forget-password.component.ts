@@ -15,10 +15,15 @@ export class NBForgetPasswordComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  submitted=false;
   requestPassword() {
+    this.submitted=true;
     this.auth.requestPassword(this.user).subscribe(() => {
+      this.submitted=false;
       this.notificationService.showToasterSuccess('AuthToasters.requestSucc', 'AuthToasters.successHeader');
+    },(err)=>{
+      this.submitted=false;
+
     });
   }
 
