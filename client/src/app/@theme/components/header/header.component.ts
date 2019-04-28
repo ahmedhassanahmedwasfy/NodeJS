@@ -4,9 +4,9 @@ import { UserData } from '../../../@core/data/users';
 import { AnalyticsService } from '../../../@core/utils';
 import { LayoutService } from '../../../@core/utils';
 
-import {Router} from "@angular/router";
-import {AuthService} from "../../../@core/services/auth/Auth.service";
-import {ProfileService} from "../../../@core/services/profile.service";
+import {Router} from '@angular/router';
+import {AuthService} from '../../../@core/services/auth/Auth.service';
+import {ProfileService} from '../../../@core/services/profile.service';
 
 @Component({
   selector: 'ngx-header',
@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() position = 'normal';
   user: any;
-  image: any;
+  userImage: any;
   userMenu = [{ title: 'Profile'}, { title: 'Log out' }];
 
   constructor(private sidebarService: NbSidebarService,
@@ -39,13 +39,7 @@ export class HeaderComponent implements OnInit {
         console.log(err);
       });
 
-    this.profileService.getUserProfileImage().subscribe(
-      res => {
-        this.image = res['image'];
-      },
-      err => {
-        console.log(err);
-      });
+    this.getProfileImage();
 
     this.menuService.onItemClick().subscribe(( event ) => {
       this.onItemSelection(event.item.title);
@@ -82,14 +76,8 @@ export class HeaderComponent implements OnInit {
   }
 
 
- /* async getProfileImage(){
-    await this.profileService.getUserProfileImage().subscribe(
-      res => {
-        this.userImage = res['file'];
-      },
-      err => {
-        console.log(err);
-      });
-
-  }*/
+  async getProfileImage() {
+    let tmp = await this.profileService.getUserProfileImage().toPromise();
+    this.userImage = 'data:image/png;base64,' + tmp;
+  }
 }

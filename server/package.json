@@ -21,6 +21,8 @@
     "googleapis": "^39.2.0",
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.0",
+    "log4js": "^4.1.0",
+    "log4js-node-mongodb": "^2.2.1",
     "mongoose": "^5.4.15",
     "multer": "^1.4.1",
     "multer-gdrive": "^1.6.0",
@@ -28,6 +30,8 @@
     "passport": "^0.4.0",
     "path": "^0.12.7",
     "stream-buffers": "^3.0.2",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "winston": "^3.2.1",
+    "winston-mongodb": "^5.0.0"
   }
 }

@@ -1,3 +1,4 @@
+const logger = require('./api/logs/logs')
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -31,20 +32,12 @@ app.use(function(err, req, res, next) {
     res.status(500).json({error:err.message});
 });
 
-app.use(function (err, req, res, next) {
-  if (err.name === 'UnauthorizedError') {
-    res.status(401);
-    res.json({"message" : err.name + ": " + err.message});
-  }
-});
-
 app.use(function(req, res, next) {
-
     res.status(404).send();
 });
 
  app.listen(port, function(){
-
+     logger.info("Running on port"+port);
      console.log("Running on port"+port);
 }); 
 

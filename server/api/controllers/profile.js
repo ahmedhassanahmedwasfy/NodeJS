@@ -72,15 +72,11 @@ module.exports.getUserProfileImage = async function (req, res) {
                 if (err) {
                     res.status(500).send();
                 } else {
-                    //res.header('Content-Type', 'image/png');
                     file.data.on('end', () => {
                         var base64data = Buffer.concat(bytes ).toString('base64');
                         res.status(200).json(base64data);
-                        //res.end();
                     }).on('data', function (data) {
                         bytes.push(data);
-                        //res.write(data);
-
                     })
                         .on('error', err => {
                             res.status(500).send()
