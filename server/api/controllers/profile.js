@@ -19,7 +19,7 @@ module.exports.userProfile = async function (req, res) {
         }
 
     }
-}
+};
 
 module.exports.editProfile = async function (req, res) {
     let dbObject = await UserRepo.update(req.body)
@@ -28,7 +28,7 @@ module.exports.editProfile = async function (req, res) {
     } else {
         res.json('Update complete');
     }
-}
+};
 
 module.exports.uploadImage = async function (req, res) {
     let result = await UserRepo.findOne({_id: req.user._id});
@@ -57,7 +57,7 @@ module.exports.uploadImage = async function (req, res) {
             res.status(500).send();
         }
     }
-}
+};
 
 module.exports.getUserProfileImage = async function (req, res) {
     let result = await UserRepo.findOne({_id: req.user._id});
@@ -89,5 +89,5 @@ module.exports.getUserProfileImage = async function (req, res) {
         }
     }
 
-}
+};
 

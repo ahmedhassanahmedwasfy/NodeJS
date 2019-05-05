@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NotificationService} from '../../@core/services/notification.service';
-import {AuthService} from '../../@core/services/auth/Auth.service';
+import {AuthService} from '../../@core/services/Auth.service';
 
 @Component({
   selector: 'ngx-reset-password',
@@ -10,6 +10,7 @@ import {AuthService} from '../../@core/services/auth/Auth.service';
 })
 export class NbResetPasswordComponent implements OnInit {
  user: any = {};
+  submitted: Boolean = false;
 
   constructor(private auth: AuthService, private route: ActivatedRoute, private router: Router, private notificationService: NotificationService) { }
 
@@ -30,6 +31,7 @@ export class NbResetPasswordComponent implements OnInit {
   async resetPassword(){
     const token = this.route.snapshot.paramMap.get('token');
     await this.auth.saveNewPassword(token, this.user).subscribe(() => {
+        this.submitted = true;
         this.notificationService.showToasterSuccess('AuthToasters.resetSucc', 'AuthToasters.successHeader');
         this.router.navigateByUrl('/auth/login');
       },

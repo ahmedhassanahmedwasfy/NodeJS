@@ -3,10 +3,9 @@ import {NbLayoutDirectionService, NbMenuService, NbSidebarService} from '@nebula
 import { UserData } from '../../../@core/data/users';
 import { AnalyticsService } from '../../../@core/utils';
 import { LayoutService } from '../../../@core/utils';
-
 import {Router} from '@angular/router';
-import {AuthService} from '../../../@core/services/auth/Auth.service';
 import {ProfileService} from '../../../@core/services/profile.service';
+import {AuthService} from '../../../@core/services/Auth.service';
 
 @Component({
   selector: 'ngx-header',

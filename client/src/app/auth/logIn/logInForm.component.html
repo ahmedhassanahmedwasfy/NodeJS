@@ -44,7 +44,7 @@
   </div>
 
   <button nbButton fullWidth status="success" type="submit" class="btn btn-success"
-          [disabled]="form.pristine || form.invalid">
+          [disabled]="form.pristine || form.invalid || submitted" [class.btn-pulse]="submitted">
     {{'Auth.LogIn' | translate }}
   </button>
 </form>

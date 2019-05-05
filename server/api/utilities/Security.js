@@ -1,5 +1,7 @@
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
+
+
 module.exports.validPassword = function (user, password) {
     var hash = crypto.pbkdf2Sync(password, user.salt, 1000, 64, 'sha512').toString('hex');
     return user.hash === hash;
@@ -15,11 +17,23 @@ module.exports.generatetoken = function (user) {
         name: user.name,
         exp: parseInt(expiry.getTime() / 1000),
     }, "MY_SECRET"); // DO NOT KEEP YOUR SECRET IN THE CODE!
-}
+};
 
 module.exports.verifyToken = function (token) {
     return jwt.verify(token, "MY_SECRET");
-}
+};
+
+module.exports.requireGroup =  async function(group){
+    return function (req, res, next) {
+        if (req.user && req.user.groups[0] === group) {
+            next();
+        } else {
+            res.send(403);
+        }
+    }
+
+};
+
 //
 // module.exports.verifyJWTToken = function (req, res, next) {
 //     var token;

@@ -37,28 +37,29 @@ export class EditUserComponent implements OnInit {
         console.log(this.user)
         this.user.permissions = this.sourcPermissions.filter(c => this.user.permissions.indexOf(c._id) !== -1);
         this.user.groups = this.sourceGroups.filter(c => this.user.groups.indexOf(c._id) !== -1);
+
         this.user.permissions.forEach(i => {
-          for (let j =this.sourcPermissions.length-1; j >=0; j--) {
+          for (let j = this.sourcPermissions.length - 1; j >= 0; j--) {
             if (this.sourcPermissions[j]._id == i._id) {
               this.sourcPermissions.splice(j, 1);
             }
           }
-        })
+        });
         this.user.groups.forEach(i => {
-          for (let j =this.sourceGroups.length-1; j >=0; j--) {
+          for (let j = this.sourceGroups.length - 1; j >= 0; j--) {
             if (this.sourceGroups[j]._id == i._id) {
               this.sourceGroups.splice(j, 1);
             }
           }
-        })
+        });
       }
 
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   }
 
-  checkdir(){
+  checkdir() {
     let checkdir = this.directionService.isLtr();
     return checkdir;
   }
@@ -72,9 +73,9 @@ export class EditUserComponent implements OnInit {
     } else {
       u = this.user;
     }
-    await this.UserService.editUser(u).subscribe(()=>{
+    await this.UserService.editUser(u).subscribe(()=> {
       this.notificationService.showToasterSuccess('usersToasters.updateSucc','usersToasters.successHeader');
-      this.router.navigateByUrl('/pages/security/users')
+      this.router.navigateByUrl('/pages/security/users');
     });
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {NotificationService} from '../../@core/services/notification.service';
-import {AuthService} from '../../@core/services/auth/Auth.service';
+import {AuthService} from '../../@core/services/Auth.service';
 
 @Component({
   selector: 'ngx-forget-password',
@@ -15,14 +15,14 @@ export class NBForgetPasswordComponent implements OnInit {
 
   ngOnInit() {
   }
-  submitted=false;
+  submitted = false;
   requestPassword() {
-    this.submitted=true;
+    this.submitted = true;
     this.auth.requestPassword(this.user).subscribe(() => {
-      this.submitted=false;
+      this.submitted = false;
       this.notificationService.showToasterSuccess('AuthToasters.requestSucc', 'AuthToasters.successHeader');
-    },(err)=>{
-      this.submitted=false;
+    }, (err) => {
+      this.submitted = false;
 
     });
   }

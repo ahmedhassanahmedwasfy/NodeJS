@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {GroupsService} from "../services/groups.service";
-import { Group } from "../seeds/group";
-import {Router} from "@angular/router";
-import { Permission } from "../seeds/permission";
-import {PermissionsService} from "../services/permissions.service";
-import {NbLayoutDirectionService} from "@nebular/theme";
-import {ToastrService} from "ngx-toastr";
-import {NotificationService} from "../../../@core/services/notification.service";
+import {GroupsService} from '../services/groups.service';
+import { Group } from '../seeds/group';
+import {Router} from '@angular/router';
+import { Permission } from '../seeds/permission';
+import {PermissionsService} from '../services/permissions.service';
+import {NbLayoutDirectionService} from '@nebular/theme';
+import {ToastrService} from 'ngx-toastr';
+import {NotificationService} from '../../../@core/services/notification.service';
 
 @Component({
   selector: 'ngx-groups',
   templateUrl: './groups.component.html',
-  styleUrls: ['./groups.component.scss']
+  styleUrls: ['./groups.component.scss'],
 })
 export class GroupsComponent implements OnInit {
   groups: Group[];

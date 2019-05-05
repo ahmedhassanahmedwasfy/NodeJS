@@ -9,9 +9,9 @@ import {NbLoginComponent} from './logIn/logInForm.component';
 import {NbRegisterComponent} from './register/registerForm.component';
 import {NBForgetPasswordComponent} from './forget-password/forget-password.component';
 import {NbResetPasswordComponent} from './reset-password/reset-password.component';
-import {AuthGuardService} from '../@core/utils/auth-guard.service';
-import {AuthService} from '../@core/services/auth/Auth.service';
-import {NbAuthComponent} from "./auth.component";
+import {NbAuthComponent} from './auth.component';
+import {AuthService} from '../@core/services/Auth.service';
+import {AuthGuardService} from '../@core/services/auth-guard.service';
 
 @NgModule({
   imports: [

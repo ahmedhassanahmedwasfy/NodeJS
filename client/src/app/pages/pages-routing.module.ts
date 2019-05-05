@@ -41,16 +41,16 @@ const routes: Routes = [{
   }, {
     path: 'PrimeNGDemo',
     loadChildren: './PrimeNGDemo/PrimeNGDemo.module#PrimeNGDemoModule',
-  },{
+  }, {
     path: 'PrimeNGDemo2',
     loadChildren: './PrimNGDemo2/PrimNGDemo2.module#PrimNGDemo2Module',
-  },{
+  }, {
     path: 'security',
     loadChildren: './security/security.module#SecurityModule',
   }, {
     path: 'user',
     loadChildren: './user/user.module#UserModule',
-  },{
+  }, {
     path: 'shopping',
     loadChildren: './shopping/shopping.module#ShoppingModule',
   }, {

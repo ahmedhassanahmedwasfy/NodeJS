@@ -53,11 +53,11 @@
           <div class="col-md-6 form-group">
             <label for="password">{{'editUsers.Password' | translate}}</label>
             <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #password="ngModel"
-             required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$">
-            <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
-              <p class="text-danger" *ngIf="password.errors?.required">
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$">
+            <ng-container *ngIf="password.invalid && (password.dirty)">
+              <!--<p class="text-danger" *ngIf="password.errors?.required">
                 {{'validation.requiredMsgPassword' | translate }}
-              </p>
+              </p>-->
               <p class="text-danger" *ngIf="password.errors?.pattern">
                 {{'validation.patternMsgPassword' | translate }}
               </p>

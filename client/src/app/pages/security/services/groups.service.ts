@@ -3,13 +3,13 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Permission} from '../seeds/permission';
 import {Group} from '../seeds/group';
-import {AppConfig} from "../../../@core/services/app-config.service";
+import {AppConfig} from '../../../@core/services/app-config.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GroupsService {
-  protected apiServer : any = AppConfig.settings.apiServer;
+  protected apiServer: any = AppConfig.settings.apiServer;
   url = `${this.apiServer.API_BASE_URL}/security/groups`;
 
 

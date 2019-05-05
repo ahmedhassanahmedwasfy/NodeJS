@@ -1,21 +1,26 @@
-import { Routes, RouterModule } from '@angular/router';
-import { SecurityComponent } from './security.component';
-import { PermissionsComponent } from './permissions/permissions.component';
-import { GroupsComponent } from './groups/groups.component';
-import { UsersComponent } from './users/users.component';
+import {Routes, RouterModule} from '@angular/router';
+import {SecurityComponent} from './security.component';
+import {PermissionsComponent} from './permissions/permissions.component';
+import {GroupsComponent} from './groups/groups.component';
+import {UsersComponent} from './users/users.component';
 import {EditPermissionComponent} from './edit-permission/edit-permission.component';
 import {EditGroupComponent} from './edit-group/edit-group.component';
 import {EditUserComponent} from './edit-user/edit-user.component';
+import {Group} from './seeds/group';
+import {AuthGuardService} from '../../@core/services/auth-guard.service';
+import {groupsEnums} from "../../@core/enums/groups.enums";
 
 
 const routes: Routes = [
   {
     path: '',
     component: SecurityComponent,
+    //data: { allowedRoles: ['Admin'] },
+    canActivateChild: [AuthGuardService],
     children: [{
       path: 'permissions',
       component: PermissionsComponent,
-        },
+    },
       {
         path: 'groups',
         component: GroupsComponent,
@@ -41,6 +46,8 @@ const routes: Routes = [
       {
         path: 'groups/update',
         component: EditGroupComponent,
+        data: {group: groupsEnums.Admin},
+
       },
       {
         path: 'users/update/:id',

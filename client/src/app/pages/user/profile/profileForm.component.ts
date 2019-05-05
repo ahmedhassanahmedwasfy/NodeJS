@@ -33,6 +33,8 @@ export class ProfileComponent implements OnInit {
   }
 
   editClick() {
+
+
     this.editable = false;
     this.editMode = true;
     //this.profileService.getUserProfileImage();

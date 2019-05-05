@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {NbAuthSocialLink} from '../auth.options';
 import {NotificationService} from '../../@core/services/notification.service';
-import {AuthService, TokenPayload} from '../../@core/services/auth/Auth.service';
+import {AuthService, TokenPayload} from '../../@core/services/Auth.service';
 
 @Component({
   selector: 'ngx-logInForm',
@@ -11,12 +11,13 @@ import {AuthService, TokenPayload} from '../../@core/services/auth/Auth.service'
 })
 export class NbLoginComponent implements OnInit {
   [x: string]: any;
+  submitted: Boolean = false;
 
   socialLinks: NbAuthSocialLink[] = [];
 
   credentials: TokenPayload = {
     email: '',
-    password: ''
+    password: '',
   };
   constructor(private auth: AuthService, private router: Router, private notificationService: NotificationService) {
   }
@@ -25,6 +26,7 @@ export class NbLoginComponent implements OnInit {
   }
   login() {
     this.auth.login(this.credentials).subscribe(() => {
+      this.submitted = true;
       this.notificationService.showToasterSuccess('AuthToasters.loginSucc', 'AuthToasters.successHeader');
       this.router.navigateByUrl('/auth/profile');
     }, (err) => {

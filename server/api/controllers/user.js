@@ -61,9 +61,8 @@ module.exports.delete = async function (req, res) {
     });
 };
 
-
 module.exports.update = async function (req, res) {
-    let o=req.body;
+    let o = req.body;
     if(req.body.password){
         let salt = crypto.randomBytes(16).toString('hex');
         let hash = crypto.pbkdf2Sync(req.body.password, salt, 1000, 64, 'sha512').toString('hex')

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const mongoose=require('mongoose');
-
+var interceptor = require('../utilities/Interceptors');
 var ctrlAuth =  require('../controllers/authentication');
 var ctrlPermission =  require('../controllers/permission');
 var ctrlGroup =  require('../controllers/group');
@@ -31,13 +31,13 @@ router.post('/resetPassword/:token', function(req,res){
 router.get('/permissions', function(req,res){
     ctrlPermission.index(req,res)});
 
-router.get('/permissions/view/:id', function(req,res){
+router.get('/permissions/view/:id', interceptor.requireGroup('Admin'), function(req,res){
     ctrlPermission.view(req,res)});
 
-router.post('/permissions/update', function (req, res) {
+router.post('/permissions/update', interceptor.requireGroup('Admin'), function (req, res) {
     ctrlPermission.update(req,res)});
 
-router.delete('/permissions/delete/:id', function (req, res) {
+router.delete('/permissions/delete/:id', interceptor.requireGroup('Admin'), function (req, res) {
     ctrlPermission.delete(req,res)});
 
 

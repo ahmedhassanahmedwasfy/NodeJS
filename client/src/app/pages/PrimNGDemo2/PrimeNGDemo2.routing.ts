@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PrimNGDemo2Component } from './PrimNGDemo2.component';
 import { OrderListComponent } from './OrderList/OrderList.component';
 import { FullCallendarComponent } from './FullCallendar/FullCallendar.component';
+import {AuthGuardService} from "../../@core/services/auth-guard.service";
 
 
 const routes: Routes = [
@@ -10,7 +11,8 @@ const routes: Routes = [
     component: PrimNGDemo2Component,
     children: [{
       path: 'OrderList'
-      , component: OrderListComponent
+       , component: OrderListComponent,
+       data:{groups:['batee5']}
     },
     {
       path: 'FullCallendar'

@@ -92,6 +92,9 @@ class MongooseRepository {
        return  this.create(model);
      }
     }
+
+
+
 }
 
 module.exports=MongooseRepository;

@@ -15,9 +15,6 @@ const environmentConfig = config[environment];
 //const finalConfig = _.merge(defaultConfig, environmentConfig);
 //global.gConfig = finalConfig;
 var port = process.env.port || config.development.app.node_port;
-
-
-
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

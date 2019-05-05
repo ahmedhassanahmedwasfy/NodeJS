@@ -56,9 +56,10 @@ import {CarService} from '../pages/PrimeNGDemo/services/car.service';
 import {HttpModule} from '@angular/http';
 import {NbToastrService} from '@nebular/theme';
 import {NbAuthModule} from '@nebular/auth';
-import {AuthGuardService} from './utils/auth-guard.service';
-import {AuthService} from './services/auth/Auth.service';
 import {ProfileService} from './services/profile.service';
+import {AuthorizationService} from './services/authorization.service';
+import {AuthGuardService} from "./services/auth-guard.service";
+import {AuthService} from "./services/Auth.service";
 //import {ErrorDialogService} from './utils/error-dialog-service.service';
 // import {interceptor} from './utils/interceptor.service';
 
@@ -187,7 +188,7 @@ export class CoreModule {
     return <ModuleWithProviders>{
       ngModule: CoreModule,
       providers: [
-        CarService, NbToastrService, AuthGuardService, AuthService, ProfileService,
+        CarService, NbToastrService, AuthGuardService, AuthService, ProfileService, AuthorizationService,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: JWTTokenInterceptor,

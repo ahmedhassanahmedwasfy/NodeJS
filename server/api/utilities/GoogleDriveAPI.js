@@ -3,7 +3,6 @@ var drive = google.drive("v3");
 var key = require("../utilities/privatekey");
 var multerGdrive = require('multer-gdrive');
 var fs = require('fs');
-
 let Duplex = require('stream').Duplex;
 
 function bufferToStream(buffer) {

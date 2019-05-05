@@ -95,7 +95,8 @@
   </div>-->
 
   <button nbButton fullWidth status="success" type="submit" class="btn btn-success"
-          [disabled]="form.pristine || form.invalid || credentials.password !== credentials.confirmPassword">
+          [disabled]="form.pristine || form.invalid || credentials.password !== credentials.confirmPassword || submitted"
+          [class.btn-pulse]="submitted">
     {{'Auth.RegisterButton' | translate }}
   </button>
 </form>
