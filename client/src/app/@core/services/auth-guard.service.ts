@@ -21,31 +21,32 @@ export class AuthGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
 
-      if (!this.authService.isLoggedIn()) {
-        resolve(false);
-        this.router.navigateByUrl('/auth/login');
+        if (!this.authService.isLoggedIn()) {
+          resolve(false);
+          this.router.navigateByUrl('/auth/login');
 
-        return;
-      }
-      let group = route && route.data['group'];
-      if (group) {
-        this.profileService.getUserProfile().subscribe(res => {
-            this.currentUser = res['user'];
-            let userGroups_Ids = this.currentUser.groups.map(c => c._id);
+          return;
+        }
+        let group = route && route.data['group'];
+        if (group) {
+          this.profileService.getUserProfile().subscribe(res => {
+              this.currentUser = res['user'];
+              let userGroups_Ids = this.currentUser.groups.map(c => c._id);
 
-            if (userGroups_Ids && userGroups_Ids.indexOf(group) !== -1) resolve(true);
-            else {
-              resolve(false);
+              if (userGroups_Ids && userGroups_Ids.indexOf(group) !== -1) resolve(true);
+              else {
+                resolve(false);
+                this.router.navigateByUrl('/auth/login');
+              }
+            },
+            err => {
+              reject(err);
               this.router.navigateByUrl('/auth/login');
-            }
-          },
-          err => {
-            reject(err);
-            this.router.navigateByUrl('/auth/login');
 
-          });
-      } else {
-        resolve(true)
+            });
+        } else {
+          resolve(true)
+        }
       }
     );
 
@@ -54,39 +55,37 @@ export class AuthGuardService implements CanActivate {
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
 
-      if (!this.authService.isLoggedIn()) {
-        resolve(false);
-        this.router.navigateByUrl('/auth/login');
-        return;
-      }
-      console.log(groupsEnums);
-      console.log(groupsEnums.Admin);
-      console.log(groupsEnums.User);
-      let group = route && route.data['group'];
-      if (group) {
-        this.profileService.getUserProfile().subscribe(res => {
-            this.currentUser = res['user'];
-            let userGroups_Ids = this.currentUser.groups.map(c => c._id);
+        if (!this.authService.isLoggedIn()) {
+          resolve(false);
+          this.router.navigateByUrl('/auth/login');
+          return;
+        }
+        console.log(groupsEnums);
+        console.log(groupsEnums.Admin);
+        console.log(groupsEnums.User);
+        let group = route && route.data['group'];
+        if (group) {
+          this.profileService.getUserProfile().subscribe(res => {
+              this.currentUser = res['user'];
+              let userGroups_Ids = this.currentUser.groups.map(c => c._id);
 
-            if (userGroups_Ids && userGroups_Ids.indexOf(group) !== -1) resolve(true);
-            else {
-              resolve(false);
+              if (userGroups_Ids && userGroups_Ids.indexOf(group) !== -1) resolve(true);
+              else {
+                resolve(false);
+                this.router.navigateByUrl('/auth/login');
+              }
+            },
+            err => {
+              reject(err);
               this.router.navigateByUrl('/auth/login');
-            }
-          },
-          err => {
-            reject(err);
-            this.router.navigateByUrl('/auth/login');
 
-          });
-      } else {
-        resolve(true)
+            });
+        } else {
+          resolve(true)
+        }
       }
     );
   }
-
-
-}
 }
 
 

@@ -25,11 +25,15 @@ export class NbLoginComponent implements OnInit {
   ngOnInit() {
   }
   login() {
+    this.submitted = true;
+
     this.auth.login(this.credentials).subscribe(() => {
-      this.submitted = true;
+      this.submitted = false;
       this.notificationService.showToasterSuccess('AuthToasters.loginSucc', 'AuthToasters.successHeader');
       this.router.navigateByUrl('/auth/profile');
     }, (err) => {
+      this.submitted = false;
+
       console.error(err);
     });
   }

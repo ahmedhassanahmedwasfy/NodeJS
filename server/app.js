@@ -25,7 +25,7 @@ app.use(passport.initialize());
 app.use('/api', routesApi);
 
 app.use(function(err, req, res, next) {
-    console.log(err.message)
+    logger.error("user: "+req.user +". error is : "+err );
     res.status(500).json({error:err.message});
 });
 
@@ -34,7 +34,7 @@ app.use(function(req, res, next) {
 });
 
  app.listen(port, function(){
-     logger.info("Running on port"+port);
+     // logger.info("Running on port"+port);
      console.log("Running on port"+port);
 }); 
 

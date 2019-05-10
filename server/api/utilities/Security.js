@@ -23,16 +23,16 @@ module.exports.verifyToken = function (token) {
     return jwt.verify(token, "MY_SECRET");
 };
 
-module.exports.requireGroup =  async function(group){
-    return function (req, res, next) {
-        if (req.user && req.user.groups[0] === group) {
-            next();
-        } else {
-            res.send(403);
-        }
-    }
-
-};
+// module.exports.requireGroup =  async function(group){
+//     return function (req, res, next) {
+//         if (req.user && req.user.groups[0] === group) {
+//             next();
+//         } else {
+//             res.send(403);
+//         }
+//     }
+//
+// };
 
 //
 // module.exports.verifyJWTToken = function (req, res, next) {
