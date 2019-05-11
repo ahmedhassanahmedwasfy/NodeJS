@@ -1,0 +1,22 @@
+
+{
+
+  "env": {
+    "name": "DEV"
+  },
+  "appInsights": {
+    "instrumentationKey": "<dev-guid-here>"
+  },
+  "logging": {
+    "console": true,
+    "appInsights": false
+  },
+  "aad": {
+    "requireAuth": true,
+    "tenant": "<dev-guid-here>",
+    "clientId": "<dev-guid-here>"
+  },
+  "apiServer": {
+    "API_BASE_URL": "http://awasfy.ddns.net:4001/api"
+  }
+}

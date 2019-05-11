@@ -28,7 +28,9 @@ export class ProfileComponent implements OnInit {
       res => {
         this.userDetails = res['user'];
       });
-    this.getProfileImage()
+    if(this.userDetails.image_Id){
+      this.getProfileImage()
+    }
 
   }
 
@@ -68,7 +70,10 @@ export class ProfileComponent implements OnInit {
 
   async getProfileImage() {
     let tmp = await this.profileService.getUserProfileImage().toPromise();
-    this.userImage = 'data:image/png;base64,' + tmp;
+    if(tmp){
+      this.userImage = 'data:image/png;base64,' + tmp;
+    }
+
    }
 
   preview(files) {

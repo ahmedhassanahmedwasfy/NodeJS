@@ -66,23 +66,28 @@ module.exports.getUserProfileImage = async function (req, res) {
     } else {
         if (result.data) {
             var fileId = result.data.image_Id;
-            var folderId = config.development.googleDrive.UserProfileImagefolderId;
-            GoogleDriveAPI.getImage(fileId, async function (err, file) {
-                let bytes = [];
-                if (err) {
-                    res.status(500).send();
-                } else {
-                    file.data.on('end', () => {
-                        var base64data = Buffer.concat(bytes ).toString('base64');
-                        res.status(200).json(base64data);
-                    }).on('data', function (data) {
-                        bytes.push(data);
-                    })
-                        .on('error', err => {
-                            res.status(500).send()
+            if(fileId){
+                var folderId = config.development.googleDrive.UserProfileImagefolderId;
+                GoogleDriveAPI.getImage(fileId, async function (err, file) {
+                    let bytes = [];
+                    if (err) {
+                        res.status(500).send();
+                    } else {
+                        file.data.on('end', () => {
+                            var base64data = Buffer.concat(bytes ).toString('base64');
+                            res.status(200).json(base64data);
+                        }).on('data', function (data) {
+                            bytes.push(data);
                         })
-                }
-            })
+                            .on('error', err => {
+                                res.status(500).send()
+                            })
+                    }
+                })
+            }else{
+                res.status(200).send()
+            }
+
 
         } else {
             res.status(500).send();
