@@ -8,7 +8,7 @@
   <p-header>
     <div class="row ">
       <div class="col-md-2 form-group">
-    <button class="btn btn-success" (click)="addGroup()">{{'viewGroups.CreateButton' | translate}}</button>
+    <button class="btn btn-success" (click)="addGroup()"><span>{{'viewGroups.CreateButton' | translate}}</span></button>
       </div>
 <!--      <div class="col-md-2 form-group">
     <input type="search" pInputText placeholder="{{'viewGroups.SearchGroup' | translate}}" (keyup)="dv.filter($event.target.value)">
@@ -17,7 +17,7 @@
   </p-header>
 
   <ng-template let-group pTemplate="listItem">
-    <div class="ui-g row" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+    <div class="ui-g row"  style="margin:0">
 
       <div class="ui-g-12 ui-md-3 col-md-2" style="text-align:center">
         <b>{{checkdir()==true ? group.name_EN : group.name_AR}}</b>
@@ -26,7 +26,10 @@
 
       <div class="ui-g-12 ui-md-8 car-details col-md-6">
         <div class="ui-g">
-          <div class="ui-g-10 ui-sm-6" *ngFor="let permission of group.permissions"><b>{{permission}}</b></div>
+          <!--<div class="ui-g-10 ui-sm-6" *ngFor="let permission of group.permissions"><b>{{permission}}</b></div>-->
+          <div class="ui-g-10 ui-sm-6" style="  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;" ><b>{{group.permissions.join(",")}}</b></div>
         </div>
       </div>
 

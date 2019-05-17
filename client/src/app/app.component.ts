@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
     directionService.setDirection(NbLayoutDirection.RTL)
     translate.addLangs(['en', 'ar']);
     translate.setDefaultLang('ar');
+    translate.use('ar');
+
     //
     // const url = 'https://jsonplaceholder.typicode.com/posts/1';
     // this.http.get(url, ).subscribe(e=>{
