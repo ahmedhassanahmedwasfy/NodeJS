@@ -9,6 +9,7 @@ import {EditUserComponent} from './edit-user/edit-user.component';
 import {Group} from './seeds/group';
 import {AuthGuardService} from '../../@core/services/auth-guard.service';
 import {groupsEnums} from "../../@core/enums/groups.enums";
+import {permissionsEnums} from "../../@core/enums/permissions.enums";
 
 
 const routes: Routes = [
@@ -46,7 +47,7 @@ const routes: Routes = [
       {
         path: 'groups/update',
         component: EditGroupComponent,
-        data: {group: groupsEnums.Admin},
+        data: {permission: permissionsEnums.ADD_EDIT_GROUP},
 
       },
       {

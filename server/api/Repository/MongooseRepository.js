@@ -17,7 +17,7 @@ class MongooseRepository {
        }catch (e) {
             err=e;
        }
-       return {err,data};
+       return {err:err,data:data};
     }
 
     async find(skip,limit,populate){
@@ -37,7 +37,7 @@ class MongooseRepository {
         }catch (e) {
             err=e;
         }
-        return {err,data};
+        return {err:err,data:data};
     }
 
     async delete(query){
@@ -48,7 +48,7 @@ class MongooseRepository {
         }catch (e) {
             err=e;
         }
-        return {err,data};
+        return {err:err,data:data};
     }
 
     async update(model){
@@ -59,7 +59,7 @@ class MongooseRepository {
         }catch (e) {
             err=e;
         }
-        return {err,data};
+        return {err:err,data:data};
     }
 
     async findOneAndUpdate(query,model){
@@ -70,7 +70,7 @@ class MongooseRepository {
         }catch (e) {
             err=e;
         }
-        return {err,data};
+        return {err:err,data:data};
     }
 
     async create(objs){
@@ -81,7 +81,7 @@ class MongooseRepository {
         }catch (e) {
             err=e;
         }
-        return {err,data};
+        return {err:err,data:data};
     }
 
     async CreateOrUpdate(model){

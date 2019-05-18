@@ -4,18 +4,18 @@ import {AuthService} from './Auth.service';
 import {AuthorizationService} from './authorization.service';
 import {ProfileService} from './profile.service';
 import {GroupsService} from "../../pages/security/services/groups.service";
+import {PermissionsService} from "../../pages/security/services/permissions.service";
 import {Group} from "../../pages/security/seeds/group";
-import {groupsEnums} from '../enums/groups.enums'
+// import {permissionsEnums} from '../enums/permissions.enums'
 
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
   currentUser: any = {};
-  userGroupso: any;
 
   constructor(private authService: AuthService, private router: Router, private authorizationService: AuthorizationService,
-              private profileService: ProfileService, private groupService: GroupsService) {
+              private profileService: ProfileService, private permissionsService: PermissionsService) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
@@ -24,16 +24,21 @@ export class AuthGuardService implements CanActivate {
         if (!this.authService.isLoggedIn()) {
           resolve(false);
           this.router.navigateByUrl('/auth/login');
-
           return;
         }
-        let group = route && route.data['group'];
-        if (group) {
+
+        let permission = route && route.data['permission'];
+        if (permission) {
           this.profileService.getUserProfile().subscribe(res => {
               this.currentUser = res['user'];
-              let userGroups_Ids = this.currentUser.groups.map(c => c._id);
 
-              if (userGroups_Ids && userGroups_Ids.indexOf(group) !== -1) resolve(true);
+              let permissionsIds = this.currentUser.permissions;
+              let userGroups_Ids = this.currentUser.groups.map(c => c.permissions);
+              permissionsIds.concat(userGroups_Ids);
+
+              if (permissionsIds && permissionsIds.indexOf(permission) !== -1) resolve(true);
+
+
               else {
                 resolve(false);
                 this.router.navigateByUrl('/auth/login');
@@ -60,16 +65,19 @@ export class AuthGuardService implements CanActivate {
           this.router.navigateByUrl('/auth/login');
           return;
         }
-        console.log(groupsEnums);
-        console.log(groupsEnums.Admin);
-        console.log(groupsEnums.User);
-        let group = route && route.data['group'];
-        if (group) {
+
+        let permission = route && route.data['permission'];
+        if (permission) {
           this.profileService.getUserProfile().subscribe(res => {
               this.currentUser = res['user'];
-              let userGroups_Ids = this.currentUser.groups.map(c => c._id);
 
-              if (userGroups_Ids && userGroups_Ids.indexOf(group) !== -1) resolve(true);
+              let permissionsIds = this.currentUser.permissions;
+              let userGroups_Ids = this.currentUser.groups.map(c => c.permissions);
+              permissionsIds= permissionsIds.concat(userGroups_Ids);
+
+              if (permissionsIds && permissionsIds.indexOf(permission) !== -1) resolve(true);
+
+
               else {
                 resolve(false);
                 this.router.navigateByUrl('/auth/login');

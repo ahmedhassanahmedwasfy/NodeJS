@@ -60,7 +60,7 @@ module.exports.uploadImage = async function (req, res) {
 };
 
 module.exports.getUserProfileImage = async function (req, res) {
-    let result = await UserRepo.findOne({_id: req.user._id});
+    let result = await UserRepo.findOne({_id: req.user._id},['groups']);
     if (result.err) {
         res.status(500).send();
     } else {
