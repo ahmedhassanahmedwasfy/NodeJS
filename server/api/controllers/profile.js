@@ -49,7 +49,7 @@ module.exports.uploadImage = async function (req, res) {
                         res.status(500).send();
                     } else {
                         console.log(file.data.id)
-                        res.status(200).send(file.data.id);
+                        res.status(200).json(file.data.id);
                     }
                 }
             })

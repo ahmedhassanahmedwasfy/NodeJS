@@ -16,9 +16,5 @@ const logger = winston.createLogger({
     ]
 });
 
-logger.log({
-    level: 'info',
-    message: 'Hello distributed log files!'
-});
 
 module.exports=logger;

@@ -27,10 +27,11 @@ export class ProfileComponent implements OnInit {
     this.profileService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
+        if(this.userDetails.image_Id){
+          this.getProfileImage()
+        }
       });
-    if(this.userDetails.image_Id){
-      this.getProfileImage()
-    }
+
 
   }
 
@@ -52,14 +53,25 @@ export class ProfileComponent implements OnInit {
   onFileSelected(event) {
     this.selectedImage = event.target.files[0];
   }
-
+  uploading=false;
   onUpload() {
+    this.uploading=true;
     const uploadImage = new FormData();
-    uploadImage.append('image', this.selectedImage, this.selectedImage.name);
-    this.profileService.uploadImage(uploadImage).subscribe(() => {
-      this.notificationService.showToasterSuccess('profileToasters.uploadImage', 'profileToasters.successHeader');
-    });
-  }
+    if(this.selectedImage){
+      uploadImage.append('image', this.selectedImage, this.selectedImage.name);
+      this.profileService.uploadImage(uploadImage).subscribe(() => {
+        this.uploading=false;
+        this.notificationService.showToasterSuccess('profileToasters.uploadImage', 'profileToasters.successHeader');
+        this.clickCancel();
+
+      },error=>{this.uploading=false;});
+
+    }
+    else{
+      this.uploading=false;
+
+    }
+     }
 
   async saveEditProfile() {
     await this.profileService.editUserProfile(this.userDetails).subscribe(() => {

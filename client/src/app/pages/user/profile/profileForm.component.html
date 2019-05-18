@@ -7,12 +7,19 @@
            <div class="profile-picture">
              <!--<label *ngIf="editmode" for="uploader-input" ng2FileDrop [ngClass]="{'drag-over': hasDragOver}" >   </label>-->
                <span style="color:red;" *ngIf="message">{{message}}</span>
-               <input  #file type="file" accept='image/*' (change)="preview(file.files)" />
+               <!--<input  #file type="file" accept='image/*' (change)="preview(file.files)" />-->
                <img  width=300 height=300  [src]="userImage" *ngIf="userImage"/>
 
                <!--<div class="infotext"><span >Drop your picture<br>or click to upload</span></div>-->
              <!--<input *ngIf="editmode" type="file" accept='image/*'  (change)="preview(file.files)" ng2FileSelect  id="uploader-input" style="display:none" />-->
            </div>
+
+           <div class="col-md-10 form-group"  >
+             <label for="image">{{'Profile.UploadImage' | translate}}</label>
+             <input style="margin-left: 15px;margin-right: 15px" type="file" accept='image/*' name="image" (change)="onFileSelected($event)" />
+             <button nbButton status="success" size="large"   [nbSpinner]="uploading" nbSpinnerStatus="success" nbSpinnerSize="large" nbSpinnerMessage="" (click)="onUpload()"> {{'Profile.Upload' | translate}} </button>
+           </div>
+
          </nb-card-body>
        </nb-card>
        <nb-card>
@@ -68,13 +75,13 @@
               </p>
             </ng-container>
         </div>
-          <div class="col-md-3 form-group" *ngIf="editMode">
+          <!--<div class="col-md-3 form-group" *ngIf="editMode">
             <label for="image">{{'Profile.UploadImage' | translate}}</label>
             <input class="form-control" type="file" accept='image/*' name="image" (change)="onFileSelected($event)" />
           </div>
           <div class='col-sm-3' *ngIf="editMode">
             <button style="margin:25px;" class="btn btn-success" (click)="onUpload()"> {{'Profile.Upload' | translate}} </button>
-          </div>
+          </div>-->
         </div>
            <div class="form-group row" *ngIf="editMode">
              <div class='col-sm-4'>
