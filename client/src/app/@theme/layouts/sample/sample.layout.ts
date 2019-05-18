@@ -33,7 +33,7 @@ import { StateService } from '../../../@core/utils';
         <ng-content select="nb-menu"></ng-content>
       </nb-sidebar>
 
-      <nb-layout-column class="main-content">
+      <nb-layout-column style="    padding: 27px 6px 6px 6px" class="main-content">
         <ng-content select="router-outlet"></ng-content>
       </nb-layout-column>
 
