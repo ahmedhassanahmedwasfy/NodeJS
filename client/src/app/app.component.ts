@@ -16,10 +16,10 @@ export class AppComponent implements OnInit {
 
     })
     themeservice.changeTheme("default")
-    directionService.setDirection(NbLayoutDirection.RTL)
+    directionService.setDirection(NbLayoutDirection.LTR)
     translate.addLangs(['en', 'ar']);
-    translate.setDefaultLang('ar');
-    translate.use('ar');
+    translate.setDefaultLang('en');
+    translate.use('en');
 
     //
     // const url = 'https://jsonplaceholder.typicode.com/posts/1';

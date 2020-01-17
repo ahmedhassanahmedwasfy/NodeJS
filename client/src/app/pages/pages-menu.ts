@@ -1,12 +1,12 @@
 import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
-  //{
-    /*title: 'E-commerce',
-    icon: 'nb-e-commerce',
-    link: '/pages/dashboard',
-    home: true,
-  },*/
+  /*{
+     title: 'E-commerce',
+     icon: 'nb-e-commerce',
+     link: '/pages/dashboard',
+     home: true,
+   },*/
   /*{
     title: 'IoT Dashboard',
     icon: 'nb-home',
@@ -70,7 +70,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },*/
-  {
+ /* {
     title: 'PrimeNGDemo',
     icon: 'nb-compose',
     children: [
@@ -97,7 +97,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/PrimeNGDemo2/FullCallendar',
       } 
     ],
-  },
+  },*/
   {
     title: 'security',
     icon: 'nb-compose',
@@ -115,7 +115,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/security/users',
       }
     ],
-  },/*{
+  },
+  /*{
     title: 'user',
     icon: 'nb-compose',
     children: [
@@ -125,7 +126,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       }
     ],
   },*/
-
  /* {
     title: 'shopping',
     icon: 'nb-compose',
@@ -140,8 +140,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },*/
-
-  
   /*{
     title: 'Forms',
     icon: 'nb-compose',
@@ -305,7 +303,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },*/
-  {
+ /* {
     title: 'Auth',
     icon: 'nb-locked',
     children: [
@@ -318,5 +316,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/auth/register',
       },
     ],
-  },
+  },*/
 ];

@@ -46,8 +46,8 @@ const routes: Routes = [
       ,
       {
         path: 'groups/update',
-        component: EditGroupComponent,
-        data: {permission: permissionsEnums.ADD_EDIT_GROUP},
+        component: EditGroupComponent//,
+        //data: {permission: permissionsEnums.ADD_EDIT_GROUP},
 
       },
       {
