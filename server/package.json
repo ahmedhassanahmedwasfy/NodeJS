@@ -26,7 +26,7 @@
     "jsonwebtoken": "^8.5.0",
     "log4js": "^4.1.0",
     "log4js-node-mongodb": "^2.2.1",
-    "mongoose": "^5.4.15",
+    "mongoose": "^5.7.5",
     "multer": "^1.4.1",
     "multer-gdrive": "^1.6.0",
     "nodemailer": "^6.1.0",
