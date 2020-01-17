@@ -32,19 +32,23 @@ router.post('/resetPassword/:token', function (req, res) {
 
 ///////////Permissions////////////
 
-router.get('/permissions',interceptor.verifyToken,function(req,res,next){interceptor.requirePermission(enum_permissions.ADD_EDIT_PERMISSION,req,res,next)} , function (req, res) {
+// router.get('/permissions',interceptor.verifyToken,function(req,res,next){interceptor.requirePermission(enum_permissions.ADD_EDIT_PERMISSION,req,res,next)} , function (req, res) {
+    router.get('/permissions' , function (req, res) {
     ctrlPermission.index(req, res)
 });
 
-router.get('/permissions/view/:id',interceptor.verifyToken, function(req,res,next){interceptor.requirePermission(enum_permissions.ADD_EDIT_PERMISSION,req,res,next)}, function (req, res) {
+// router.get('/permissions/view/:id',interceptor.verifyToken, function(req,res,next){interceptor.requirePermission(enum_permissions.ADD_EDIT_PERMISSION,req,res,next)}, function (req, res) {
+    router.get('/permissions/view/:id', function (req, res) {
     ctrlPermission.view(req, res)
 });
 
-router.post('/permissions/update',interceptor.verifyToken, function(req,res,next){interceptor.requirePermission(enum_permissions.ADD_EDIT_PERMISSION,req,res,next)}, function (req, res) {
+// router.post('/permissions/update',interceptor.verifyToken, function(req,res,next){interceptor.requirePermission(enum_permissions.ADD_EDIT_PERMISSION,req,res,next)}, function (req, res) {
+    router.post('/permissions/update',  function (req, res) {
     ctrlPermission.update(req, res)
 });
 
-router.delete('/permissions/delete/:id',interceptor.verifyToken, function(req,res,next){interceptor.requirePermission(enum_permissions.ADD_EDIT_PERMISSION,req,res,next)}, function (req, res) {
+// router.delete('/permissions/delete/:id',interceptor.verifyToken, function(req,res,next){interceptor.requirePermission(enum_permissions.ADD_EDIT_PERMISSION,req,res,next)}, function (req, res) {
+    router.delete('/permissions/delete/:id',function (req, res) {
     ctrlPermission.delete(req, res)
 });
 
