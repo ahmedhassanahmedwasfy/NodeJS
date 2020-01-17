@@ -12,7 +12,7 @@
       "host": "localhost",
       "port": 27017,
       "name": "MyDoctor",
-      "dburl": "mongodb+srv://sa:010203010203@cluster0-9tqii.gcp.mongodb.net/MyDoctor?retryWrites=true"
+	  "dburl": "mongodb+srv://sa:010203010203@cluster0-9tqii.gcp.mongodb.net/MyDoctor??retryWrites=true&w=majority&readPreference=primary"
     },
     "nodejs": {
       "config_id": "nodejs",

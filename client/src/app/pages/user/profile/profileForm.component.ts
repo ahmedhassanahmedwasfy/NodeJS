@@ -73,7 +73,7 @@ export class ProfileComponent implements OnInit {
     }
      }
 
-  async saveEditProfile() {
+  async saveEditProfile()  {
     await this.profileService.editUserProfile(this.userDetails).subscribe(() => {
       this.notificationService.showToasterSuccess('profileToasters.updateSucc', 'profileToasters.successHeader');
       this.clickCancel();

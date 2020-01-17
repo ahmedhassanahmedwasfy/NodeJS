@@ -31,7 +31,7 @@ module.exports.register = async function (req, res) {
         sendJSONresponse(res, 500, {'error': 'err in saving user in mongo'});
     }
     var token;
-    token = securityUtility.generatetoken(dbobject.data);
+    token = securityUtility.generatetoken(dbobject.data[0]);
     sendJSONresponse(res, 200, {
         "token": token
     });
