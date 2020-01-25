@@ -17,6 +17,6 @@
     "clientId": "<dev-guid-here>"
   },
   "apiServer": {
-    "API_BASE_URL": "http://awasfy.ddns.net:4001/api"
+    "API_BASE_URL": "http://localhost:4001/api"
   }
 }
