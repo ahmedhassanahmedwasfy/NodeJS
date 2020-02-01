@@ -28,7 +28,7 @@ module.exports.register = async function (req, res) {
     let dbobject = await UserRepo.create(objs);
 
     if (dbobject.err) {
-        sendJSONresponse(res, 500, {'error': 'err in saving user in mongo'});
+        sendJSONresponse(res, 500, { 'error': 'err in saving user in mongo' });
     }
     var token;
     token = securityUtility.generatetoken(dbobject.data[0]);
@@ -40,7 +40,7 @@ module.exports.register = async function (req, res) {
 
 module.exports.login = async function (req, res) {
 
-    await User.findOne({email: req.body.email}).populate('groups').lean().exec(function (err, user) {
+    await User.findOne({ email: req.body.email }).populate('groups').lean().exec(function (err, user) {
         if (err) {
             return res.status(500).send(dbobject.err);
         }
@@ -67,7 +67,7 @@ module.exports.forgetPassword = function (req, res) {
             });
         },
         function (token, done) {
-            User.findOne({email: req.body.email}, function (err, user) {
+            User.findOne({ email: req.body.email }, function (err, user) {
                 if (!user) {
                     res.status(404).send("No account with that email address exists.");
                     console.log('No account with that email address exists.');
@@ -101,8 +101,16 @@ module.exports.forgetPassword = function (req, res) {
             };
 
             smtpTrans.sendMail(mailOptions, function (err) {
-                console.log('An e-mail has been sent to ' + user.email + ' with further instructions.');
-                console.log('sent')
+                if (err) {
+                    res.status(500).json(err).send();
+                    done(err, token, user);
+                } else {
+                    console.log('An e-mail has been sent to ' + user.email + ' with further instructions.');
+                    console.log('sent');
+                    res.status(200);
+                    res.json({});
+                    done(err, token, user);
+                }
             });
         }
     ]), function (err) {
@@ -124,45 +132,45 @@ module.exports.forgetPassword = function (req, res) {
 
 module.exports.saveNewPassword = async function (req, res) {
     async.waterfall([
-            function (done) {
-                User.findOne({
-                    resetPasswordToken: req.params.token,
-                    resetPasswordExpires: {$gt: Date.now()}
-                }, function (err, user) {
-                    if (err) {
-                        return res.status(500).send(err);
-                    }
-                    if (!user) {
-                        return res.status(401).send();
-                        console.log('Password reset token is invalid or has expired.');
-                    }
+        function (done) {
+            User.findOne({
+                resetPasswordToken: req.params.token,
+                resetPasswordExpires: { $gt: Date.now() }
+            }, function (err, user) {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                if (!user) {
+                    return res.status(401).send();
+                    console.log('Password reset token is invalid or has expired.');
+                }
 
-                    if (user) {
-                        if (req.body.password === req.body.confirmPassword) {
-                            let salt1 = crypto.randomBytes(16).toString('hex');
-                            user.salt = salt1;
-                            user.hash = crypto.pbkdf2Sync(req.body.password, salt1, 1000, 64, 'sha512').toString('hex');
-                            user.resetPasswordToken = undefined;
-                            user.resetPasswordExpires = undefined;
-                            console.log('password' + user.password + 'and the user is' + user);
-                            user.save(function (err) {
-                                if (err) {
-                                    return res.status(500).send(err);
-                                } else {
-                                    res.status(200);
-                                    res.json({
-                                        "token": user.resetPasswordToken
-                                    });
-                                }
-                            });
-                        }
-                    } else {
-                        console.log('Passwords do not match.');
+                if (user) {
+                    if (req.body.password === req.body.confirmPassword) {
+                        let salt1 = crypto.randomBytes(16).toString('hex');
+                        user.salt = salt1;
+                        user.hash = crypto.pbkdf2Sync(req.body.password, salt1, 1000, 64, 'sha512').toString('hex');
+                        user.resetPasswordToken = undefined;
+                        user.resetPasswordExpires = undefined;
+                        console.log('password' + user.password + 'and the user is' + user);
+                        user.save(function (err) {
+                            if (err) {
+                                return res.status(500).send(err);
+                            } else {
+                                res.status(200);
+                                res.json({
+                                    "token": user.resetPasswordToken
+                                });
+                            }
+                        });
                     }
-                });
-            },
+                } else {
+                    console.log('Passwords do not match.');
+                }
+            });
+        },
 
-        ],
+    ],
     );
 };
 

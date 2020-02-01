@@ -110,11 +110,11 @@ export class AuthService {
   }
 
   public requestPassword(data) {
-    return this.http.post('${this.apiServer.API_BASE_URL}/security/forgetPassword', data);
+    return this.http.post(`${this.apiServer.API_BASE_URL}/security/forgetPassword`, data);
   }
 
   public saveNewPassword(token, data) {
-    return this.http.post('${this.apiServer.API_BASE_URL}/security/resetPassword/' + token, data);
+    return this.http.post(`${this.apiServer.API_BASE_URL}/security/resetPassword/` + token, data);
   }
 
 

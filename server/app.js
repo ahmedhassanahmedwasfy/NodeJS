@@ -1,3 +1,11 @@
+process
+    .on('unhandledRejection', (reason, p) => {
+        console.error(reason, 'Unhandled Rejection at Promise', p);
+    })
+    .on('uncaughtException', err => {
+        console.error(err, 'Uncaught Exception thrown');
+        // process.exit(1);
+    });
 const logger = require('./api/logs/logs')
 var express = require('express');
 var path = require('path');
@@ -24,19 +32,19 @@ app.use(passport.initialize());
 
 app.use('/api', routesApi);
 
-app.use(function(err, req, res, next) {
-    logger.error("user: "+req.user +". error is : "+err );
-    res.status(500).json({error:err.message});
+app.use(function (err, req, res, next) {
+    logger.error("user: " + req.user + ". error is : " + err);
+    res.status(500).json({ error: err.message });
 });
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.status(404).send();
 });
 
- app.listen(port, function(){
-     // logger.info("Running on port"+port);
-     console.log("Running on port"+port);
-}); 
+app.listen(port, function () {
+    // logger.info("Running on port"+port);
+    console.log("Running on port" + port);
+});
 
 
 module.exports = app;

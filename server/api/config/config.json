@@ -4,7 +4,7 @@
       "config_id": "development",
       "app_name": "myDoctor",
       "app_desc": "my app desc",
-      "node_port": 4000,
+      "node_port": 4001,
       "json_indentation": 4
     },
     "mongodb": {
@@ -17,7 +17,7 @@
     "nodejs": {
       "config_id": "nodejs",
       "domain": "localhost",
-      "port": 4000
+      "port": 4001
     },
     "email": {
       "config_id": "email",
