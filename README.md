@@ -1,7 +1,7 @@
 # What is this ?
 Simple Angular- Node js template to boost your application development.
 
-#Features are included.
+# Features are included.
 
 -Multi themes application.
 
@@ -32,7 +32,7 @@ admin user: test@test.test/P@ssw0rd
 
 
 
-#Running the application.
+# Running the application.
 
 -Docker
 
