@@ -1,5 +1,5 @@
 # What is this ?
-Simple Angular- Node js template to boost your application development.
+Simple Angular- Node js - mongodb template to boost your application development.
 
 # Features are included.
 
